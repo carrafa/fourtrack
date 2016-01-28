@@ -1,3 +1,6 @@
-var app = angular.module('mixyClient', ['ngCookies', 'mainController',
+var app = angular.module('mixyClient', [
+  'ngCookies',
+  'mainController',
+  'loginController',
   'usersApiFactory'
 ]);

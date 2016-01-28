@@ -1,24 +1,25 @@
 var ctrl = angular.module('mainController', []);
 
-ctrl.controller('main', ['$scope', 'usersApi', '$cookies', function($scope,
-  usersApi, $cookies) {
+ctrl.controller('main', ['$scope', 'usersApi', '$cookies', '$location',
+  function(
+    $scope,
+    usersApi,
+    $cookies,
+    $location) {
 
-  $scope.credentials = {}
+    $scope.currentUser = {}
 
-  $scope.newUser = {}
+    $scope.cookie = $cookies.get('token');
 
-  $scope.createUser = function() {
-    usersApi.createUser($scope.newUser).then(function() {})
-    $scope.newUser = {};
+
+    $scope.loadUser = function() {
+      usersApi.loadUser($scope.cookie).then(function(response) {
+        console.log(response.data);
+        $scope.currentUser = response.data.user[0]
+      });
+    }
+
+    $scope.loadUser();
+
   }
-
-  $scope.logIn = function() {
-    usersApi.logIn($scope.credentials).then(function(response) {
-      console.log(response);
-      var token = response.data.token
-      console.log('token???', token);
-      $cookies.put('token', token);
-      $scope.credentials = {}
-    })
-  }
-}]);
+]);

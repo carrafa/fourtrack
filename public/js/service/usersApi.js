@@ -10,6 +10,10 @@ api.factory('usersApi', ['$http', function($http) {
     return $http.get(baseUrl);
   }
 
+  usersInterface.loadUser = function() {
+    return $http.get(baseUrl);
+  }
+
   usersInterface.createUser = function(newUser) {
     var payload = {
       user: newUser

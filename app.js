@@ -34,12 +34,16 @@ var users = require('./routes/users');
 app.use('/api/users', users);
 
 app.get('/welcome', function(req, res) {
-  res.render('welcome');
+  if (req.cookies.token) {
+    res.redirect('/')
+  } else {
+    res.render('welcome');
+  }
 });
 
-app.get('/', function(req, res) {
-  res.render('index');
-});
+var index = require('./routes/index');
+app.use('/', index);
+
 
 //listen
 var port = parseInt(process.env.PORT) || 8080;

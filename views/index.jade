@@ -8,10 +8,12 @@ html(ng-app="mixyClient")
     script(src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular.js", charset="utf-8")
     script(src="https://code.angularjs.org/1.4.9/angular-cookies.js", charset="utf-8")
     script(src="/js/service/usersApi.js", charset="utf-8")
+    script(src="/js/controllers/login.js", charset="utf-8")
     script(src="/js/controllers/main.js", charset="utf-8")
     script(src="/js/app.js", charset="utf-8")
     script(src="/js/scripts.js", charset="utf-8")
     
   body(ng-controller="main")
     h1 mixy
-    h4 hello
+    h1 hello
+    h1 HI {{currentUser.username}}

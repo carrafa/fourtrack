@@ -6,11 +6,22 @@ var User = require('../models/user');
 
 // index
 router.get('/', function(req, res) {
-  User.find({}, function(err, dbUsers) {
-    res.json({
-      users: dbUsers
+  if (req.cookies.token) {
+    token = req.cookies.token;
+    User.find({
+      token: token
+    }, function(err, dbUser) {
+      res.json({
+        user: dbUser
+      });
     });
-  });
+  } else {
+    User.find({}, function(err, dbUsers) {
+      res.json({
+        users: dbUsers
+      });
+    });
+  }
 });
 
 // create
@@ -50,7 +61,6 @@ router.delete('/', function(req, res) {
 });
 
 router.post('/authenticate', function(req, res) {
-  console.log('USERNAME: ', req.body.username)
   User.findOne({
     username: req.body.username
   }, function(err, dbUser) {

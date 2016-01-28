@@ -4,9 +4,9 @@ function loadUser(req, res, next) {
   if (req.cookies.token) {
     User.findOne({
       token: req.cookies.token
-    }, function(err, databaseUser) {
+    }, function(err, dbUser) {
       if (err) return err;
-      req.user = databaseUser;
+      req.user = dbUser;
       next();
     });
   } else {
