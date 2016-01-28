@@ -33,6 +33,9 @@ app.use(loadUser);
 var users = require('./routes/users');
 app.use('/api/users', users);
 
+var songs = require('./routes/songs');
+app.use('/api/songs', songs);
+
 app.get('/welcome', function(req, res) {
   if (req.cookies.token) {
     res.redirect('/')

@@ -8,6 +8,7 @@ html(ng-app="mixyClient")
     script(src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular.js", charset="utf-8")
     script(src="https://code.angularjs.org/1.4.9/angular-cookies.js", charset="utf-8")
     script(src="/js/service/usersApi.js", charset="utf-8")
+    script(src="/js/service/songsApi.js", charset="utf-8")
     script(src="/js/controllers/login.js", charset="utf-8")
     script(src="/js/controllers/main.js", charset="utf-8")
     script(src="/js/app.js", charset="utf-8")
@@ -18,3 +19,12 @@ html(ng-app="mixyClient")
     h1 hello
     h1 HI {{currentUser.username}}
     
+    form(id="createSong", ng-submit="createSong()")
+      input(type="text", ng-model="newSong.songTitle", placeholder="songTitle")
+      input(type="text", ng-model="newSong.albumTitle", placeholder="albumTitle")
+      input(type="text", ng-model="newSong.audioSource.track01", placeholder="track01")
+      input(type="text", ng-model="newSong.audioSource.track02", placeholder="track02")
+      input(type="text", ng-model="newSong.audioSource.track03", placeholder="track03")
+      input(type="text", ng-model="newSong.audioSource.track04", placeholder="track04")
+      input(type="text", ng-model="newSong.artwork", placeholder="artwork")
+      button(type="submit") add song
