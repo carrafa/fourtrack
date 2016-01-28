@@ -1,21 +1,10 @@
-doctype html
-html(ng-app="mixyClient")
-  head
-    title mixy
-    meta(name="viewport", content="width=device-width, initial-scale=1")
-    link(rel="stylesheet", href="/css/normalize.css")
-    link(rel="stylesheet", href="/css/styles.css")
-    script(src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular.js", charset="utf-8")
-    script(src="https://code.angularjs.org/1.4.9/angular-cookies.js", charset="utf-8")
-    script(src="/js/service/usersApi.js", charset="utf-8")
-    script(src="/js/controllers/login.js", charset="utf-8")
-    script(src="/js/controllers/main.js", charset="utf-8")
-    script(src="/js/app.js", charset="utf-8")
-    script(src="/js/scripts.js", charset="utf-8")
-    
-  body(ng-controller="login")
+extends base
+
+block content
+  header
     h1 mixy
     
+  .container(ng-controller="login")
     .signup LOG IN
       form(ng-submit="logIn()")
         input(type="text", ng-model="credentials.username", placeholder="username")
