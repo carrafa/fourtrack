@@ -50,6 +50,7 @@ router.delete('/', function(req, res) {
 });
 
 router.post('/authenticate', function(req, res) {
+  console.log('USERNAME: ', req.body.username)
   User.findOne({
     username: req.body.username
   }, function(err, dbUser) {

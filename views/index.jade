@@ -6,6 +6,7 @@ html(ng-app="mixyClient")
     link(rel="stylesheet", href="/css/normalize.css")
     link(rel="stylesheet", href="/css/styles.css")
     script(src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular.js", charset="utf-8")
+    script(src="https://code.angularjs.org/1.4.9/angular-cookies.js", charset="utf-8")
     script(src="/js/service/usersApi.js", charset="utf-8")
     script(src="/js/controllers/main.js", charset="utf-8")
     script(src="/js/app.js", charset="utf-8")
@@ -14,6 +15,13 @@ html(ng-app="mixyClient")
   body(ng-controller="main")
     h1 mixy??
     
+    .signup LOG IN
+      form(ng-submit="logIn()")
+        input(type="text", ng-model="credentials.username", placeholder="username")
+        input(type="text", ng-model="credentials.password", placeholder="password")
+        button(type="submit") sign up
+    
+    .signup SIGN UP
     form(ng-submit="createUser()")
       input(type="text", ng-model="newUser.username", placeholder="username")
       input(type="text", ng-model="newUser.password", placeholder="password")

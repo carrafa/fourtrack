@@ -18,6 +18,9 @@ api.factory('usersApi', ['$http', function($http) {
     return $http.post(baseUrl, payload);
   }
 
+  usersInterface.logIn = function(credentials) {
+    return $http.post(baseUrl + "/authenticate", credentials)
+  }
   usersInterface.delete = function(id) {
     return $http.delete(baseUrl + "/" + id)
   }
