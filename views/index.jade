@@ -7,11 +7,13 @@ html(ng-app="mixyClient")
     link(rel="stylesheet", href="/css/styles.css")
     script(src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular.js", charset="utf-8")
     script(src="https://code.angularjs.org/1.4.9/angular-cookies.js", charset="utf-8")
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js", charset="utf-8")
     script(src="/js/service/usersApi.js", charset="utf-8")
     script(src="/js/service/songsApi.js", charset="utf-8")
     script(src="/js/controllers/login.js", charset="utf-8")
     script(src="/js/controllers/main.js", charset="utf-8")
     script(src="/js/app.js", charset="utf-8")
+    script(src="/js/howler.js", charset="utf-8")
     script(src="/js/scripts.js", charset="utf-8")
     
   body(ng-controller="main")
@@ -19,6 +21,8 @@ html(ng-app="mixyClient")
     h1 hello
     h1 HI {{currentUser.username}}
     
+    
+    h3 ADD A SONG
     form(id="createSong", ng-submit="createSong()")
       input(type="text", ng-model="newSong.artist", placeholder="artist")
       input(type="text", ng-model="newSong.songTitle", placeholder="song title")
@@ -29,10 +33,17 @@ html(ng-app="mixyClient")
       input(type="text", ng-model="newSong.audio.track04", placeholder="track04")
       input(type="text", ng-model="newSong.artwork", placeholder="artwork")
       button(type="submit") add song
+    .mixer
     
     div where is this?
     ul
       li(ng-repeat="song in allSongs")
-        div ??? {{song.artist}}
-        div ??? {{song.songTitle}}
-        div ??? {{song.albumTitle}}
+        div ARTIST: {{song.artist}}
+        div ALBUM: {{song.albumTitle}}
+        div SONG: {{song.songTitle}}
+        button this will be a play button some day
+        button(ng-click="loadMixer()") MIX THIS SONG
+        .controls
+          #play &#9654
+          #pause ||
+          #stop &#9632

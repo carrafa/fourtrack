@@ -28,3 +28,23 @@ button{
   background-color: salmon;
   text-shadow: 1px 1px 1px firebrick;
 }
+
+ul{
+  list-style: none;
+}
+
+li{
+  position: relative;
+  width: 50%;
+  left: 25%;
+  background-color: gray;
+  padding: .5em;
+  border-radius: .5em;
+}
+
+.controls *{
+  position: relative;
+  display: inline-block;
+  margin-left: 1em;
+  font-size: 2em;
+}
