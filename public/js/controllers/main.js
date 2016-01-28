@@ -17,7 +17,7 @@ ctrl.controller('main', [
 
     $scope.newSong = {}
 
-    $scope.songs = [{
+    $scope.allSongs = [{
       title: 'SONG ONE',
       audioSource: {
         track01: 'defaultUrl'
@@ -35,9 +35,15 @@ ctrl.controller('main', [
 
     $scope.loadUser = function() {
       usersApi.loadUser($scope.cookie).then(function(response) {
-        console.log(response.data);
         $scope.currentUser = response.data.user[0]
       });
+    }
+
+    $scope.loadSongs = function() {
+      songsApi.getAll().then(function(response) {
+        console.log('songsss?? ', response.data.songs);
+        $scope.allSongs = response.data.songs
+      })
     }
 
     $scope.createSong = function() {
@@ -47,6 +53,7 @@ ctrl.controller('main', [
     }
 
     $scope.loadUser();
+    $scope.loadSongs();
 
   }
 ]);

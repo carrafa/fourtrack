@@ -14,7 +14,6 @@ api.factory('songsApi', ['$http', function($http) {
     var payload = {
       song: newSong
     };
-    console.log("NEW SONG PAYLOAD", payload);
     return $http.post(baseUrl, payload);
   }
 

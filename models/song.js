@@ -3,6 +3,9 @@ var bcrypt = require('bcryptjs');
 var crypto = require('crypto');
 
 var SongSchema = mongoose.Schema({
+  artist: {
+    type: String
+  },
   songTitle: {
     type: String
   },
