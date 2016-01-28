@@ -19,12 +19,14 @@
   "dependencies": {
     "bcryptjs": "^2.3.0",
     "body-parser": "^1.14.2",
+    "bourbon": "^4.2.6",
     "cookie-parser": "^1.4.1",
     "crypto": "0.0.3",
     "dotenv": "^2.0.0",
     "kerberos": "0.0.18",
     "mongoose": "^4.3.7",
     "morgan": "^1.6.1",
+    "node-neat": "^1.7.2",
     "node-sass-middleware": "^0.9.7"
   }
 }

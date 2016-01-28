@@ -10,8 +10,10 @@ mongoose.connect(mongoPath);
 
 var sassMiddleware = require('node-sass-middleware');
 var path = require('path');
+var bourbon = require('node-neat').includePaths;
 app.use(sassMiddleware({
   /* Options */
+  includePaths: bourbon,
   src: './src/sass',
   dest: path.join('./public', 'css'),
   debug: true,
