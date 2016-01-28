@@ -33,6 +33,10 @@ app.use(loadUser);
 var users = require('./routes/users');
 app.use('/api/users', users);
 
+app.get('/welcome', function(req, res) {
+  res.render('welcome');
+});
+
 app.get('/', function(req, res) {
   res.render('index');
 });

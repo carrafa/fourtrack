@@ -21,5 +21,4 @@ ctrl.controller('main', ['$scope', 'usersApi', '$cookies', function($scope,
       $scope.credentials = {}
     })
   }
-
 }]);

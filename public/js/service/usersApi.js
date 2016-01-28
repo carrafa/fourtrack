@@ -14,7 +14,6 @@ api.factory('usersApi', ['$http', function($http) {
     var payload = {
       user: newUser
     };
-    console.log("PAYLOAD: ", payload)
     return $http.post(baseUrl, payload);
   }
 

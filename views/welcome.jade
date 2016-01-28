@@ -14,4 +14,19 @@ html(ng-app="mixyClient")
     
   body(ng-controller="main")
     h1 mixy
-    h4 hello
+    
+    .signup LOG IN
+      form(ng-submit="logIn()")
+        input(type="text", ng-model="credentials.username", placeholder="username")
+        input(type="text", ng-model="credentials.password", placeholder="password")
+        button(type="submit") log in
+    
+    .signup SIGN UP
+    form(ng-submit="createUser()")
+      input(type="text", ng-model="newUser.username", placeholder="username")
+      input(type="text", ng-model="newUser.password", placeholder="password")
+      button(type="submit") sign up
+    
+    .test TESTING
+      .test {{newUser.username}}
+      .test {{newUser.password}}
