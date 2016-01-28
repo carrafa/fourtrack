@@ -1,8 +1,8 @@
 var ctrl = angular.module('loginController', []);
 
-ctrl.controller('login', ['$scope', 'usersApi', '$cookies', '$location',
+ctrl.controller('login', ['$scope', 'usersApi', '$cookies',
   function($scope,
-    usersApi, $cookies, $location) {
+    usersApi, $cookies) {
 
     $scope.credentials = {}
 
@@ -19,6 +19,7 @@ ctrl.controller('login', ['$scope', 'usersApi', '$cookies', '$location',
         var token = response.data.token
         $cookies.put('token', token);
         $scope.credentials = {}
+        location.reload();
       })
     }
   }
