@@ -17,33 +17,13 @@ ctrl.controller('main', [
 
     $scope.newSong = {}
 
-    $scope.allSongs = [{
-      title: 'SONG ONE',
-      audioSource: {
-        track01: 'defaultUrl'
-      },
-      artwork: 'deaultArtwork'
-    }, {
-      title: "SONG TWO",
-      audioSource: {
-        track01: 'defaultUrl',
-        track02: 'defaultUrl'
-      },
-      artwork: 'defaultArtwork'
-    }, {}]
+    $scope.allSongs = []
 
     $scope.loadMixer = function() {
-      console.log('clicked.');
-      // var mixArray = [];
-      // mixArray.push(this.song.audio.track01);
-      // mixArray.push(this.song.audio.track02);
-      // mixArray.push(this.song.audio.track03);
-      // mixArray.push(this.song.audio.track04);
-      mixArray = ["http://localhost:8080/songs/default_song/drums.mp3",
-        "http://localhost:8080/songs/default_song/guitar.mp3",
-        "http://localhost:8080/songs/default_song/keys.mp3",
-        "http://localhost:8080/songs/default_song/lead.mp3"
-      ]
+      var mixArray = [];
+      angular.forEach(this.song.audio, function(value, key) {
+        mixArray.push(value);
+      });
       createTracks(mixArray);
     }
 
