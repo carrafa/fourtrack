@@ -20,8 +20,11 @@ ctrl.controller('main', [
     $scope.allSongs = []
 
     $scope.loadMixer = function() {
+      $('.mixer').empty();
+      $('.controls').empty();
       var mixArray = [];
       angular.forEach(this.song.audio, function(value, key) {
+        console.log(value);
         mixArray.push(value);
       });
       createTracks(mixArray);
@@ -49,18 +52,16 @@ ctrl.controller('main', [
     $scope.loadUser();
     $scope.loadSongs();
 
-    console.log('hi, nosy person')
-
     $(function() {
 
-    })
-
-    var tracks = [
-      'audio/drums.mp3',
-      'audio/keys.mp3',
-      'audio/guitar.mp3',
-      'audio/lead.mp3'
-    ];
+      })
+      //
+      // var tracks = [
+      //   'audio/drums.mp3',
+      //   'audio/keys.mp3',
+      //   'audio/guitar.mp3',
+      //   'audio/lead.mp3'
+      // ];
 
     function newHowl(url) {
       var howl = new Howl({
@@ -73,6 +74,7 @@ ctrl.controller('main', [
 
     function createTracks(tracks) {
       var $pos = $('<input type="range">').attr('id', 'pos');
+      renderControls();
       $('.controls').append($pos);
       for (i = 0; i < tracks.length; i++) {
 
@@ -93,6 +95,15 @@ ctrl.controller('main', [
 
       };
     };
+
+    function renderControls() {
+      $play = $('<div>').attr('id', 'play').text('PLAY')
+      $pause = $('<div>').attr('id', 'pause').text('PAUSE')
+      $stop = $('<div>').attr('id', 'stop').text('STOP')
+      $('.controls').append($play)
+      $('.controls').append($pause)
+      $('.controls').append($stop)
+    }
 
     function addTrackToControls(howl) {
       $('#play').on('click', function() {
