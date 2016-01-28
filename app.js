@@ -1,13 +1,24 @@
 var express = require('express');
 var app = express();
 
-
 // database
 var mongoPath = process.env.MONGOLAB_URI || 'mongodb://localhost/mixy'
 var mongoose = require('mongoose');
 mongoose.connect(mongoPath);
 
 // middleware
+
+var sassMiddleware = require('node-sass-middleware');
+var path = require('path');
+app.use(sassMiddleware({
+  /* Options */
+  src: './src/sass',
+  dest: path.join('./public', 'css'),
+  debug: true,
+  // outputStyle: 'compressed',
+  prefix: '/css' // Where prefix is at <link rel="stylesheets" href="prefix/style.css"/>
+}));
+app.use(express.static(path.join('css', 'public')));
 
 var morgan = require('morgan');
 app.use(morgan('dev'));

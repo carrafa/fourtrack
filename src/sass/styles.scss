@@ -3,42 +3,48 @@ body {
   font-family: futura;
   font-weight: lighter;
   text-align: center;
-  text-shadow: 1px 1px 1px gray; }
+  text-shadow: 1px 1px 1px gray;
+}
 
-form {
+form{
   position: relative;
   width: 20%;
   margin: 0 auto;
-  margin-bottom: 2em; }
+  margin-bottom: 2em;
+}
 
-input {
+input{
   width: 100%;
   border: none;
   border-radius: .5em;
   margin-top: .5em;
-  height: 1.5em; }
-
-button {
+  height: 1.5em;
+}
+button{
   margin-top: .5em;
   width: 100%;
   border: none;
   border-radius: .5em;
   background-color: salmon;
-  text-shadow: 1px 1px 1px firebrick; }
+  text-shadow: 1px 1px 1px firebrick;
+}
 
-ul {
-  list-style: none; }
+ul{
+  list-style: none;
+}
 
-li {
+li{
   position: relative;
   width: 50%;
   left: 25%;
   background-color: gray;
   padding: .5em;
-  border-radius: .5em; }
+  border-radius: .5em;
+}
 
-.controls * {
+.controls *{
   position: relative;
   display: inline-block;
   margin-left: 1em;
-  font-size: 2em; }
+  font-size: 2em;
+}
