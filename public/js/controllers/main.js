@@ -19,15 +19,18 @@ ctrl.controller('main', [
 
     $scope.allSongs = []
 
-    $scope.loadMixer = function() {
-      $('.mixer').empty();
-      $('.controls').empty();
+    $scope.loadMixer = function($event) {
+      $song = angular.element($event.target).parent()
+      $('.mixer').remove();
+      $('.controls').remove();
       var mixArray = [];
       angular.forEach(this.song.audio, function(value, key) {
         console.log(value);
         mixArray.push(value);
       });
-      createTracks(mixArray);
+      console.log()
+
+      $song.append(createTracks(mixArray));
     }
 
     $scope.loadUser = function() {
@@ -63,8 +66,10 @@ ctrl.controller('main', [
 
     function createTracks(tracks) {
       var $pos = $('<input type="range">').attr('id', 'pos');
-      renderControls();
-      $('.controls').append($pos);
+      $mixer = $('<div>').addClass('mixer');
+      $controls = makeControls();
+      $controls.append($pos);
+      $mixer.append($controls);
       for (i = 0; i < tracks.length; i++) {
 
         var $trackLabel = $('<div>').text('track' + i);
@@ -74,28 +79,31 @@ ctrl.controller('main', [
 
         $($sliderContainer).append($track);
         $($sliderContainer).append($trackLabel);
-        $('.mixer').append($sliderContainer);
+        $mixer.append($sliderContainer);
 
         var howl = newHowl(tracks[i]);
 
         $pos.attr('max', howl);
         addTrackToSlider($track, howl);
-        addTrackToControls(howl);
+        addTrackToControls(howl, $controls);
 
       };
+      return $mixer
     };
 
-    function renderControls() {
+    function makeControls() {
+      $controls = $('<div>').addClass('controls')
       $play = $('<div>').attr('id', 'play').text('PLAY')
       $pause = $('<div>').attr('id', 'pause').text('PAUSE')
       $stop = $('<div>').attr('id', 'stop').text('STOP')
-      $('.controls').append($play)
-      $('.controls').append($pause)
-      $('.controls').append($stop)
+      $controls.append($play)
+      $controls.append($pause)
+      $controls.append($stop)
+      return $controls
     }
 
-    function addTrackToControls(howl) {
-      $('#play').on('click', function() {
+    function addTrackToControls(howl, $controls) {
+      $controls.find('#play').on('click', function() {
         if (howl.paused === false) {
           console.log('no');
         } else {
@@ -103,13 +111,13 @@ ctrl.controller('main', [
           console.log('play');
         }
       });
-      $('#pause').on('click', function() {
+      $controls.find('#pause').on('click', function() {
         howl.pause();
       });
-      $('#stop').on('click', function() {
+      $controls.find('#stop').on('click', function() {
         howl.stop();
       });
-      $('#pos').on("change", function() {
+      $controls.find('#pos').on("change", function() {
         howl.pos($(this).val());
       });
 

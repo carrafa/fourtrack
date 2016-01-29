@@ -34,4 +34,4 @@ block content
         div SONG: {{song.songTitle}}
         img(src="{{song.artwork}}")
         button this will be a play button some day
-        button(ng-click="loadMixer()") MIX THIS SONG
+        button(ng-click="loadMixer($event)") MIX THIS SONG
