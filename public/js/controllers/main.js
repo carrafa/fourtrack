@@ -52,17 +52,6 @@ ctrl.controller('main', [
     $scope.loadUser();
     $scope.loadSongs();
 
-    $(function() {
-
-      })
-      //
-      // var tracks = [
-      //   'audio/drums.mp3',
-      //   'audio/keys.mp3',
-      //   'audio/guitar.mp3',
-      //   'audio/lead.mp3'
-      // ];
-
     function newHowl(url) {
       var howl = new Howl({
         urls: [url],

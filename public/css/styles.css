@@ -9,7 +9,11 @@ body {
   font-family: futura;
   font-weight: lighter;
   text-align: center;
-  text-shadow: 1px 1px 1px gray; }
+  text-shadow: 1px 1px 1px gray;
+  padding-top: 4em; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0; }
 
 ul {
   list-style: none; }
@@ -43,12 +47,27 @@ button {
   font-size: 2em;
   cursor: pointer; }
 
+header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  margin: 0;
+  padding: .5em;
+  z-index: 1000;
+  box-shadow: 0px 1px 1px dimgray;
+  background-color: dodgerblue;
+  background-image: -webkit-linear-gradient(dodgerblue, cornflowerblue);
+  background-image: linear-gradient(dodgerblue, cornflowerblue); }
+  header * {
+    display: inline-block; }
+
 .song {
   position: relative;
   width: 30%;
   left: 35%;
   background-color: gray;
   padding: .5em;
+  margin-bottom: 1em;
   border-radius: .5em; }
   .song img {
     width: 100%; }

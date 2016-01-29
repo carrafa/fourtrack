@@ -7,6 +7,11 @@ body {
   font-weight: lighter;
   text-align: center;
   text-shadow: 1px 1px 1px gray;
+  padding-top: 4em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
 }
 
 ul{
@@ -46,7 +51,24 @@ button{
   font-size: 2em;
   cursor: pointer;
 }
-//-------------------------- song stuff -------------------------
+
+// -------------------------- header -------------------------
+
+header{
+  position: fixed;
+  width: 100%;
+  top: 0;
+  margin: 0;
+  padding: .5em;
+  z-index: 1000;
+  box-shadow: 0px 1px 1px dimgray;
+  @include linear-gradient(dodgerblue, cornflowerblue);
+  *{
+    display: inline-block;
+  }
+}
+
+// -------------------------- song stuff -------------------------
 
 .song{
   position: relative;
@@ -54,6 +76,7 @@ button{
   left: 35%;
   background-color: gray;
   padding: .5em;
+  margin-bottom: 1em;
   border-radius: .5em;
   img{
     width: 100%;
@@ -62,7 +85,7 @@ button{
 
 
 
-//-------------------------- new song form dropdown -------------------------
+// -------------------------- new song form dropdown -------------------------
 
 .expander {
   $base-font-size: 1em !default;
