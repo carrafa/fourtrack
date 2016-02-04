@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var User = require('../models/user');
+var User = require('../../models/user');
 
 //routes
 
@@ -26,7 +26,6 @@ router.get('/', function(req, res) {
 
 // create
 router.post('/', function(req, res, next) {
-  console.log('REQ BODY USER, ', req.body.user)
   if (!req.body.user) {
     return next({
       status: 422,
@@ -46,6 +45,24 @@ router.post('/', function(req, res, next) {
   });
 });
 
+// update
+
+router.put('/:id', function(req, res, next) {
+  console.log('user? ', req.body.user);
+  User.findByIdAndUpdate(req.params.id, req.body.user, function(err, user) {
+    if (err) {
+      return err
+    }
+    if (!user) {
+      return next({
+        status: 404,
+        message: "what?? not found!"
+      });
+    }
+    res.json(user);
+  });
+});
+
 // delete
 router.delete('/', function(req, res) {
   if (req.user) {
@@ -60,6 +77,7 @@ router.delete('/', function(req, res) {
   }
 });
 
+// log in
 router.post('/authenticate', function(req, res) {
   User.findOne({
     username: req.body.username

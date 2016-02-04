@@ -21,6 +21,13 @@ api.factory('usersApi', ['$http', function($http) {
     return $http.post(baseUrl, payload);
   }
 
+  usersInterface.updateUser = function(user) {
+    var payload = {
+      user: user
+    };
+    return $http.put(baseUrl + "/" + user._id, payload);
+  }
+
   usersInterface.logIn = function(credentials) {
     return $http.post(baseUrl + "/authenticate", credentials)
   }

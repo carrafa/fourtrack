@@ -1,23 +1,7 @@
-var ctrl = angular.module('mainController', []);
+angular.module('mixerDirective', [])
+  .directive('mixer' ['$scope', function($scope) {
 
-ctrl.controller('main', [
-  '$scope',
-  'usersApi',
-  'songsApi',
-  '$cookies',
-  function(
-    $scope,
-    usersApi,
-    songsApi,
-    $cookies) {
-
-    $scope.currentUser = {};
-
-    $scope.cookie = $cookies.get('token');
-
-    $scope.newSong = {}
-
-    $scope.allSongs = []
+    // -------------------------- nothing works here yet --------------------------
 
     $scope.loadMixer = function($event) {
       $song = angular.element($event.target).parent()
@@ -31,27 +15,6 @@ ctrl.controller('main', [
       $song.append(createTracks(mixArray));
     }
 
-    $scope.loadUser = function() {
-      usersApi.loadUser($scope.cookie).then(function(response) {
-        $scope.currentUser = response.data.user[0]
-      });
-    }
-
-    $scope.loadSongs = function() {
-      songsApi.getAll().then(function(response) {
-        console.log('songsss?? ', response.data.songs);
-        $scope.allSongs = response.data.songs
-      })
-    }
-
-    $scope.createSong = function() {
-      songsApi.createSong($scope.newSong).then(function(response) {
-        console.log(response.data);
-      });
-    }
-
-    $scope.loadUser();
-    $scope.loadSongs();
 
     function newHowl(url) {
       var howl = new Howl({
@@ -127,5 +90,4 @@ ctrl.controller('main', [
       });
     };
 
-  }
-]);
+  }])

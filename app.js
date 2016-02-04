@@ -43,10 +43,10 @@ app.use(loadUser);
 
 
 //routes
-var users = require('./routes/users');
+var users = require('./routes/api/users');
 app.use('/api/users', users);
 
-var songs = require('./routes/songs');
+var songs = require('./routes/api/songs');
 app.use('/api/songs', songs);
 
 app.get('/welcome', function(req, res) {

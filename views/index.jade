@@ -1,27 +1,9 @@
 extends base
 
 block content
-  header
-    h1 mixy
-    a(href="#", id="logout") logout
+  include ./includes/header
   .container(ng-controller="main")
     h1 HI {{currentUser.username}}
-    
-    
-    
-    .expander
-      a(href="javascript:void(0)", id="js-expander-trigger", class="expander-trigger expander-hidden") ADD A SONG!
-      #js-expander-content.expander-content
-        form(id="createSong", ng-submit="createSong()")
-          input(type="text", ng-model="newSong.artist", placeholder="artist")
-          input(type="text", ng-model="newSong.songTitle", placeholder="song title")
-          input(type="text", ng-model="newSong.albumTitle", placeholder="album title")
-          input(type="text", ng-model="newSong.audio.track01", placeholder="track01")
-          input(type="text", ng-model="newSong.audio.track02", placeholder="track02")
-          input(type="text", ng-model="newSong.audio.track03", placeholder="track03")
-          input(type="text", ng-model="newSong.audio.track04", placeholder="track04")
-          input(type="text", ng-model="newSong.artwork", placeholder="artwork")
-          button(type="submit") add song
       
     .mixer
     .controls
@@ -32,6 +14,8 @@ block content
         div ARTIST: {{song.artist}}
         div ALBUM: {{song.albumTitle}}
         div SONG: {{song.songTitle}}
+        //- div(ng-directive="playlist") SONG: {{song.songTitle}}
         img(src="{{song.artwork}}")
         button this will be a play button some day
         button(ng-click="loadMixer($event)") MIX THIS SONG
+        //- button(ng-click="loadMixer($event)") MIX THIS SONG

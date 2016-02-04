@@ -1,0 +1,19 @@
+extends base
+
+block content
+  include ./includes/header
+  .container(ng-controller="profile")
+    
+    ul
+      li 
+        div(ng-click="edit.username=true", ng-hide="edit.username") username: {{currentUser.username}}
+        form(ng-submit="updateUser('username')")
+          input(type="text", ng-show="edit.username", ng-model="currentUser.username", placeholder="{{currentUser.username}}")
+      li 
+        div(ng-click="edit.artist = true", ng-hide="edit.artist") artist name: {{currentUser.artist}}
+        form(ng-submit="updateUser('artist')")
+          input(type="text", ng-show="edit.artist", ng-model="currentUser.artist", placeholder="{{currentUser.artist}}")
+      li 
+        div(ng-click="edit.hometown = true", ng-hide="edit.hometown") hometown: {{currentUser.hometown}}
+        form(ng-submit="updateUser('hometown')")
+          input(type="text", ng-show="edit.hometown", ng-model="currentUser.hometown", placeholder="{{currentUser.hometown}}")

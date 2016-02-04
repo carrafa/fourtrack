@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var Song = require('../models/song');
+var Song = require('../../models/song');
 
 //routes
 

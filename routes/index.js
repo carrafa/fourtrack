@@ -9,4 +9,20 @@ router.get('/', function(req, res) {
   }
 })
 
+router.get('/new_song', function(req, res) {
+  if (req.cookies.token) {
+    res.render('new_song');
+  } else {
+    res.redirect('/welcome');
+  }
+})
+
+router.get('/profile', function(req, res) {
+  if (req.cookies.token) {
+    res.render('profile');
+  } else {
+    res.redirect('/welcome');
+  }
+})
+
 module.exports = router;

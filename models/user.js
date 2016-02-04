@@ -6,6 +6,12 @@ var UserSchema = mongoose.Schema({
   username: {
     type: String
   },
+  artist: {
+    type: String
+  },
+  hometown: {
+    type: String
+  },
   password: {
     type: String
   },
