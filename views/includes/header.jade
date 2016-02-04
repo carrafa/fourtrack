@@ -1,6 +1,8 @@
-header
+header(ng-controller="main")
   h1 mixy
+  .username
+    {{currentUser.username}}
   nav
     a(href="/") home
     a(href="/profile") profile
-    a(href="#", id="logout") logout
+    a(href="#", id="logout", ng-click="logout()") logout

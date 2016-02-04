@@ -37,6 +37,11 @@ ctrl.controller('main', [
       });
     }
 
+    $scope.logout = function() {
+      $cookies.remove('token');
+      location.reload();
+    }
+
     $scope.loadSongs = function() {
       songsApi.getAll().then(function(response) {
         console.log('songsss?? ', response.data.songs);
