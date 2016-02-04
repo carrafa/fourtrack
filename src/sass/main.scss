@@ -1,19 +1,10 @@
-@import 'bourbon';
-@import 'neat';
-
-$header-height: 2.8em;
-
-$light-font-color: mistyrose;
-$dark-font-color: black;
-
-$link-color: gold;
-$link-hover: goldenrod;
+@import 'base';
 
 
 // -------------------------- main styling --------------------------
 body {
   background-color: whitesmoke;
-  font-family: futura;
+  font-family: $main-font;
   font-weight: lighter;
   text-align: center;
   text-shadow: 1px 1px 1px gray;
@@ -89,6 +80,11 @@ header{
   }
   h1{
     top: 0;
+  }
+  .username{
+    color: $light-font-color;
+    margin-left: 1em;
+    font-weight: lighter;
   }
   nav{
     position: absolute;
