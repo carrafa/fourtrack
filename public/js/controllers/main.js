@@ -68,10 +68,8 @@ ctrl.controller('main', [
     };
 
     function createTracks(tracks) {
-      var $pos = $('<input type="range">').attr('id', 'pos');
       $mixer = $('<div>').addClass('mixer');
       $controls = makeControls();
-      $controls.append($pos);
       $mixer.append($controls);
       for (i = 0; i < tracks.length; i++) {
 
@@ -86,7 +84,6 @@ ctrl.controller('main', [
 
         var howl = newHowl(tracks[i]);
 
-        $pos.attr('max', howl);
         addTrackToSlider($track, howl);
         addTrackToControls(howl, $controls);
 
@@ -119,9 +116,6 @@ ctrl.controller('main', [
       });
       $controls.find('#stop').on('click', function() {
         howl.stop();
-      });
-      $controls.find('#pos').on("change", function() {
-        howl.pos($(this).val());
       });
 
     };
