@@ -3,12 +3,14 @@ var ctrl = angular.module('mainController', []);
 ctrl.controller('main', [
   '$scope',
   '$timeout',
+  '$interval',
   'usersApi',
   'songsApi',
   '$cookies',
   function(
     $scope,
     $timeout,
+    $interval,
     usersApi,
     songsApi,
     $cookies) {
@@ -58,6 +60,17 @@ ctrl.controller('main', [
         showSelectionBar: true
       }
     }];
+
+    playhead = $interval(function() {
+      for (i = 0; i < 4; i++) {
+        if (tracks[i] != undefined) {
+          var progress = tracks[i].pos();
+          $('#playhead').css('width', progress + '%')
+        }
+      }
+    }, 100);
+
+
 
     addTrackToSlider = function(track, i) {
       angular.element(document).on('mousemove', function() {

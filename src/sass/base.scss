@@ -2,9 +2,12 @@
 @import 'neat';
 
 $header-height: 2.8em;
+$footer-height: 2.5em;
 
-$main-font: 'Montserrat', sans-serif;
+$main-font: 'Oswald', sans-serif;
 
+$bg-light: mistyrose;
+$bg-dark: navy;
 
 $light-font-color: mistyrose;
 $dark-font-color: black;
@@ -21,6 +24,7 @@ body {
   text-shadow: 1px 1px 1px gray;
   padding-top: $header-height;
   color: $dark-font-color;
+  padding-bottom: $footer-height;
 }
 
 h1, h2, h3, h4, h5, h6, ul {

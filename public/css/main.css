@@ -6,12 +6,13 @@ html {
 
 body {
   background-color: whitesmoke;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Oswald", sans-serif;
   font-weight: lighter;
   text-align: center;
   text-shadow: 1px 1px 1px gray;
   padding-top: 2.8em;
-  color: black; }
+  color: black;
+  padding-bottom: 2.5em; }
 
 h1, h2, h3, h4, h5, h6, ul {
   margin: 0;
@@ -52,13 +53,6 @@ button {
   border-radius: .5em;
   background-color: salmon;
   text-shadow: 1px 1px 1px firebrick; }
-
-.controls * {
-  position: relative;
-  display: inline-block;
-  margin-left: 1em;
-  font-size: 2em;
-  cursor: pointer; }
 
 header {
   position: fixed;
@@ -114,3 +108,36 @@ header {
       font-style: italic; }
   .song img {
     width: 100%; }
+
+.controls {
+  height: 2.5em;
+  background-color: navy;
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+  bottom: 0; }
+  .controls #play-pause {
+    position: absolute;
+    margin: 0;
+    left: 0.5em;
+    height: 80%;
+    width: 1.7em;
+    top: 15%; }
+  .controls #play-pause svg {
+    stroke: snow;
+    fill: snow;
+    cursor: pointer; }
+  .controls #progress-bar {
+    position: absolute;
+    left: 3em;
+    width: 90%;
+    height: 5%;
+    top: 45%;
+    background-color: snow;
+    cursor: pointer; }
+  .controls #playhead {
+    position: absolute;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: deeppink; }

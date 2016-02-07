@@ -20,3 +20,9 @@ block content
           rzslider(rz-slider-model="verticalSlider[2].value", rz-slider-options="verticalSlider[2].options")
           rzslider(rz-slider-model="verticalSlider[3].value", rz-slider-options="verticalSlider[3].options")
       //- button(ng-click="loadMixer($event)") MIX THIS SONG}
+    .controls
+      #play-pause
+        svg(xmlns="http://www.w3.org/2000/svg", xmlns:xlink="http://www.w3.org/1999/xlink", version="1.1", x="0px", y="0px", viewBox="0 0 100 100", enable-background="new 0 0 100 100", xml:space="preserve")
+          path(d="M85.2,47.7L20.6,6.5c-5.3-3.3-9.5-1-9.5,5.2V88c0,6.2,4.4,8.8,9.8,5.8l63.9-34.7C90.1,56,90.3,50.9,85.2,47.7z")
+      #progress-bar
+        #playhead

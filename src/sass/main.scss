@@ -25,14 +25,6 @@ button{
   text-shadow: 1px 1px 1px firebrick;
 }
 
-.controls *{
-  position: relative;
-  display: inline-block;
-  margin-left: 1em;
-  font-size: 2em;
-  cursor: pointer;
-}
-
 // -------------------------- header -------------------------
 
 header{
@@ -92,5 +84,45 @@ header{
   margin-bottom: 1em;
   img{
     width: 100%;
+  }
+}
+
+// -------------------------- player -------------------------
+
+.controls{
+  height: $footer-height;
+  background-color: $bg-dark;
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+  bottom: 0;
+  #play-pause{
+    position: absolute;
+    margin: 0;
+    left: 0.5em;
+    height: 80%;
+    width: $footer-height - 0.8em;
+    top: 15%;
+  }
+  #play-pause svg{
+    stroke: snow;
+    fill: snow;
+    cursor: pointer;
+  }
+  #progress-bar{
+    position: absolute;
+    left: 3em;
+    width: 90%;
+    height: 5%;
+    top: 45%;
+    background-color: snow;
+    cursor: pointer;
+  }
+  #playhead{
+    position: absolute;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: deeppink;
   }
 }
