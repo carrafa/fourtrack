@@ -104,7 +104,13 @@ header {
   position: relative;
   background-color: gray;
   padding: .5em;
-  margin-bottom: 1em;
-  border-radius: .5em; }
+  margin-bottom: 1em; }
+  .song .song-info {
+    text-align: left; }
+    .song .song-info .artist {
+      font-weight: bold;
+      font-size: 1.2em; }
+    .song .song-info .album {
+      font-style: italic; }
   .song img {
     width: 100%; }

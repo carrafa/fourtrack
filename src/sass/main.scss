@@ -80,24 +80,17 @@ header{
   @include row();
 }
 .song{
+  .song-info{
+    text-align: left;
+      .artist {font-weight: bold; font-size: 1.2em;}
+      .album {font-style: italic;}
+      .song-title {}
+  }
   position: relative;
   background-color: gray;
   padding: .5em;
   margin-bottom: 1em;
-  border-radius: .5em;
   img{
     width: 100%;
   }
-  // .info-container{
-  //   position: relative;
-  //   display: inline-block;
-  //   @include span-columns(6);
-  //   @include omega();
-  // }
-  // .mixer{
-  //   position: relative;
-  //   display: inline-block;
-  //   @include span-columns(6);
-  //   @include omega();
-  // }
 }
