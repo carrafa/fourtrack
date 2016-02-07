@@ -2,7 +2,7 @@
 @import 'neat';
 
 
-$tablet: new-breakpoint(max-width 850px 12);
+$tablet: new-breakpoint(max-width 1000px 12);
 $mobile: new-breakpoint(max-width 650px 12);
 
 $header-height: 2.8em;
@@ -10,7 +10,8 @@ $footer-height: 2.5em;
 
 $main-font: 'Molengo', sans-serif;
 
-$bg-light: mistyrose;
+$bg-light: honeydew;
+$bg-medium: darkgray;
 $bg-dark: aquamarine;
 
 $color-main: black;
@@ -19,8 +20,11 @@ $color-alt: chartreuse;
 $light-font-color: mistyrose;
 $dark-font-color: black;
 
-$link-color: #FF7F9D;
+$link-color: mistyrose;
 $link-hover: #F10038;
+
+// $link-color: #FF7F9D;
+// $link-hover: #F10038;
 
 // -------------------------- main styling --------------------------
 body {
@@ -30,7 +34,7 @@ body {
   text-align: center;
   padding-top: $header-height + .5em;
   color: $dark-font-color;
-  padding-bottom: $footer-height + 1em;
+  margin-bottom: $footer-height + 1em;
 }
 
 h1, h2, h3, h4, h5, h6, ul {

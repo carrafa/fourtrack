@@ -11,7 +11,7 @@ body {
   text-align: center;
   padding-top: 3.3em;
   color: black;
-  padding-bottom: 3.5em; }
+  margin-bottom: 3.5em; }
 
 h1, h2, h3, h4, h5, h6, ul {
   margin: 0;
@@ -22,7 +22,7 @@ ul {
 
 a {
   text-decoration: none;
-  color: #FF7F9D; }
+  color: mistyrose; }
 
 a:hover {
   color: #F10038; }
@@ -148,7 +148,7 @@ header {
   margin-right: 2.35765%;
   width: 23.23176%;
   position: relative;
-  background-color: gray;
+  background-color: darkgray;
   padding: .5em;
   margin-bottom: 1em; }
   .song:last-child {
@@ -157,7 +157,7 @@ header {
     margin-right: 0; }
   .song:nth-child(4n+1) {
     clear: left; }
-  @media screen and (max-width: 850px) {
+  @media screen and (max-width: 1000px) {
     .song {
       float: left;
       display: block;
@@ -197,8 +197,13 @@ header {
     right: 0.5em;
     width: 3.5em;
     height: 3.5em;
-    border-radius: 50%;
-    background-color: #FF7F9D;
+    border-radius: 0.1%;
+    padding: 0;
+    background-color: mistyrose;
+    background-image: url("/images/mixer.png");
+    background-position: center;
+    background-size: 90%;
+    background-repeat: no-repeat;
     border: none; }
   .song .mix-it:hover {
-    background-color: #F10038; }
+    cursor: pointer; }

@@ -96,7 +96,7 @@ ctrl.controller('main', [
     }
 
     $scope.loadMixer = function($event) {
-      $song = angular.element($event.target).parent()
+      $song = angular.element($event.target).parent();
       $('#play-pause').css('display', 'block');
       $('body').find('section').css('height', '0em');
       $('img').css('display', 'block');

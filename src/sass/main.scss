@@ -136,7 +136,7 @@ header{
     display: inline-block;
   }
   position: relative;
-  background-color: gray;
+  background-color: $bg-medium;
   padding: .5em;
   margin-bottom: 1em;
   img{
@@ -148,11 +148,16 @@ header{
     right: 0.5em;
     width: 3.5em;
     height: 3.5em;
-    border-radius: 50%;
+    border-radius: 0.1%;
+    padding: 0;
     background-color: $link-color;
+    background-image: url('/images/mixer.png');
+    background-position: center;
+    background-size: 90%;
+    background-repeat: no-repeat;
     border: none;
   }
   .mix-it:hover{
-    background-color: $link-hover;
+    cursor: pointer;
   }
 }
