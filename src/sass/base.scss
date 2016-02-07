@@ -1,7 +1,6 @@
 @import 'bourbon';
 @import 'neat';
 
-@include font-face("main-font", "../fonts/EBGaramondSC12-Regular", $file-formats: ttf);
 
 $tablet: new-breakpoint(max-width 850px 12);
 $mobile: new-breakpoint(max-width 650px 12);
@@ -9,16 +8,19 @@ $mobile: new-breakpoint(max-width 650px 12);
 $header-height: 2.8em;
 $footer-height: 2.5em;
 
-$main-font: 'main-font';
+$main-font: 'Molengo', sans-serif;
 
 $bg-light: mistyrose;
-$bg-dark: navy;
+$bg-dark: aquamarine;
+
+$color-main: black;
+$color-alt: chartreuse;
 
 $light-font-color: mistyrose;
 $dark-font-color: black;
 
-$link-color: gold;
-$link-hover: goldenrod;
+$link-color: #FF7F9D;
+$link-hover: #F10038;
 
 // -------------------------- main styling --------------------------
 body {
@@ -26,7 +28,6 @@ body {
   font-family: $main-font;
   font-weight: lighter;
   text-align: center;
-  text-shadow: 1px 1px 1px gray;
   padding-top: $header-height + .5em;
   color: $dark-font-color;
   padding-bottom: $footer-height + 1em;

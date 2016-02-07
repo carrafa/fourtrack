@@ -16,18 +16,12 @@ input{
   height: 1.5em;
   cursor: pointer;
 }
-button{
-  margin-top: .5em;
-  width: 100%;
-  border: none;
-  border-radius: .5em;
-  background-color: salmon;
-  text-shadow: 1px 1px 1px firebrick;
-}
 
 // -------------------------- header -------------------------
 
 header{
+  background-color: $bg-dark;
+  color: $color-main;
   position: fixed;
   text-align: left;
   padding-left: 1em;
@@ -37,7 +31,6 @@ header{
   margin: 0;
   z-index: 1000;
   box-shadow: 0px 1px 1px dimgray;
-  @include linear-gradient(dodgerblue, cornflowerblue);
   *{
     display: inline-block;
   }
@@ -65,6 +58,55 @@ header{
     color: red;
   }
 }
+
+// -------------------------- player / footer -------------------------
+
+.controls{
+  background-color: $bg-dark;
+  color: $color-main;
+  height: $footer-height;
+  position: fixed;
+  z-index: 1000;
+  bottom: 0;
+  @include span-columns(12);
+  @include omega();
+  #play-pause{
+    margin: 0;
+    height: $footer-height;
+    top: 15%;
+    @include span-columns(1);
+    @include omega(2n);
+  }
+
+  #play-pause svg{
+    height: 100%;
+    width: 100%;
+    stroke: $color-main;
+    fill: $color-main;
+    cursor: pointer;
+    display: none;
+  }
+
+  svg *{
+    stroke: $color-main;
+    fill: $color-main;
+  }
+
+  #progress-bar{
+    margin-top: $footer-height * 0.4;
+    height: 20%;
+    background-color: snow;
+    cursor: pointer;
+    @include span-columns(10);
+    @include omega(2n);
+  }
+  #playhead{
+    height: 100%;
+    width: 100%;
+    background-color: $color-main;
+  }
+}
+
 
 // -------------------------- song stuff -------------------------
 
@@ -100,45 +142,17 @@ header{
   img{
     width: 100%;
   }
-}
-
-// -------------------------- player -------------------------
-
-.controls{
-  height: $footer-height;
-  background-color: $bg-dark;
-  position: fixed;
-  z-index: 1000;
-  width: 100%;
-  bottom: 0;
-  #play-pause{
+  .mix-it{
     position: absolute;
-    margin: 0;
-    left: 0.5em;
-    height: 80%;
-    width: $footer-height - 0.8em;
-    top: 15%;
+    top: 0.5em;
+    right: 0.5em;
+    width: 3.5em;
+    height: 3.5em;
+    border-radius: 50%;
+    background-color: $link-color;
+    border: none;
   }
-  #play-pause svg{
-    stroke: snow;
-    fill: snow;
-    cursor: pointer;
-    display: none;
-  }
-  #progress-bar{
-    position: absolute;
-    left: 5%;
-    width: 90%;
-    height: 5%;
-    top: 45%;
-    background-color: snow;
-    cursor: pointer;
-  }
-  #playhead{
-    position: absolute;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background-color: deeppink;
+  .mix-it:hover{
+    background-color: $link-hover;
   }
 }

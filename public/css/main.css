@@ -4,18 +4,11 @@ html {
 *, *::after, *::before {
   box-sizing: inherit; }
 
-@font-face {
-  font-family: "main-font";
-  font-style: normal;
-  font-weight: normal;
-  src: url("../fonts/EBGaramondSC12-Regular.ttf") format("truetype"); }
-
 body {
   background-color: whitesmoke;
-  font-family: "main-font";
+  font-family: "Molengo", sans-serif;
   font-weight: lighter;
   text-align: center;
-  text-shadow: 1px 1px 1px gray;
   padding-top: 3.3em;
   color: black;
   padding-bottom: 3.5em; }
@@ -29,10 +22,10 @@ ul {
 
 a {
   text-decoration: none;
-  color: gold; }
+  color: #FF7F9D; }
 
 a:hover {
-  color: goldenrod; }
+  color: #F10038; }
 
 .mixer {
   height: 0;
@@ -52,15 +45,9 @@ input {
   height: 1.5em;
   cursor: pointer; }
 
-button {
-  margin-top: .5em;
-  width: 100%;
-  border: none;
-  border-radius: .5em;
-  background-color: salmon;
-  text-shadow: 1px 1px 1px firebrick; }
-
 header {
+  background-color: aquamarine;
+  color: black;
   position: fixed;
   text-align: left;
   padding-left: 1em;
@@ -69,10 +56,7 @@ header {
   top: 0;
   margin: 0;
   z-index: 1000;
-  box-shadow: 0px 1px 1px dimgray;
-  background-color: dodgerblue;
-  background-image: -webkit-linear-gradient(dodgerblue, cornflowerblue);
-  background-image: linear-gradient(dodgerblue, cornflowerblue); }
+  box-shadow: 0px 1px 1px dimgray; }
   header * {
     display: inline-block; }
   header h1 {
@@ -92,6 +76,64 @@ header {
     color: firebrick; }
   header #logout:hover {
     color: red; }
+
+.controls {
+  background-color: aquamarine;
+  color: black;
+  height: 2.5em;
+  position: fixed;
+  z-index: 1000;
+  bottom: 0;
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 100%;
+  margin-right: 0; }
+  .controls:last-child {
+    margin-right: 0; }
+  .controls #play-pause {
+    margin: 0;
+    height: 2.5em;
+    top: 15%;
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 6.17215%; }
+    .controls #play-pause:last-child {
+      margin-right: 0; }
+    .controls #play-pause:nth-child(2n) {
+      margin-right: 0; }
+    .controls #play-pause:nth-child(2n+1) {
+      clear: left; }
+  .controls #play-pause svg {
+    height: 100%;
+    width: 100%;
+    stroke: black;
+    fill: black;
+    cursor: pointer;
+    display: none; }
+  .controls svg * {
+    stroke: black;
+    fill: black; }
+  .controls #progress-bar {
+    margin-top: 1em;
+    height: 20%;
+    background-color: snow;
+    cursor: pointer;
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 82.94039%; }
+    .controls #progress-bar:last-child {
+      margin-right: 0; }
+    .controls #progress-bar:nth-child(2n) {
+      margin-right: 0; }
+    .controls #progress-bar:nth-child(2n+1) {
+      clear: left; }
+  .controls #playhead {
+    height: 100%;
+    width: 100%;
+    background-color: black; }
 
 .ul {
   display: block; }
@@ -149,37 +191,14 @@ header {
     display: inline-block; }
   .song img {
     width: 100%; }
-
-.controls {
-  height: 2.5em;
-  background-color: navy;
-  position: fixed;
-  z-index: 1000;
-  width: 100%;
-  bottom: 0; }
-  .controls #play-pause {
+  .song .mix-it {
     position: absolute;
-    margin: 0;
-    left: 0.5em;
-    height: 80%;
-    width: 1.7em;
-    top: 15%; }
-  .controls #play-pause svg {
-    stroke: snow;
-    fill: snow;
-    cursor: pointer;
-    display: none; }
-  .controls #progress-bar {
-    position: absolute;
-    left: 5%;
-    width: 90%;
-    height: 5%;
-    top: 45%;
-    background-color: snow;
-    cursor: pointer; }
-  .controls #playhead {
-    position: absolute;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background-color: deeppink; }
+    top: 0.5em;
+    right: 0.5em;
+    width: 3.5em;
+    height: 3.5em;
+    border-radius: 50%;
+    background-color: #FF7F9D;
+    border: none; }
+  .song .mix-it:hover {
+    background-color: #F10038; }
