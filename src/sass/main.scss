@@ -72,11 +72,26 @@ header{
   @include row();
 }
 .song{
+  @include span-columns(3);
+  @include omega(4n);
+  @include media($tablet){
+    @include span-columns(6);
+    @include omega(2n);
+  }
+  @include media($mobile){
+    @include span-columns(12);
+    @include omega();
+  }
   .song-info{
     text-align: left;
       .artist {font-weight: bold; font-size: 1.2em;}
       .album {font-style: italic;}
       .song-title {}
+  }
+  .slider-container{
+    height: 90%;
+    width: 20%;
+    display: inline-block;
   }
   position: relative;
   background-color: gray;
@@ -108,10 +123,11 @@ header{
     stroke: snow;
     fill: snow;
     cursor: pointer;
+    display: none;
   }
   #progress-bar{
     position: absolute;
-    left: 3em;
+    left: 5%;
     width: 90%;
     height: 5%;
     top: 45%;

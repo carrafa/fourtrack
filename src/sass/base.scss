@@ -1,6 +1,10 @@
 @import 'bourbon';
 @import 'neat';
 
+
+$tablet: new-breakpoint(max-width 850px 12);
+$mobile: new-breakpoint(max-width 650px 12);
+
 $header-height: 2.8em;
 $footer-height: 2.5em;
 

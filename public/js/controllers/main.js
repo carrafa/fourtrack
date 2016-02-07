@@ -19,13 +19,13 @@ ctrl.controller('main', [
 
     $scope.cookie = $cookies.get('token');
 
+    var paused = false;
+
     $scope.newSong = {};
 
     $scope.allSongs = [];
 
     tracks = {};
-
-    var vm = this;
 
     $scope.verticalSlider = [{
       value: 75,
@@ -70,18 +70,37 @@ ctrl.controller('main', [
       }
     }, 100);
 
-
-
     addTrackToSlider = function(track, i) {
       angular.element(document).on('mousemove', function() {
         track.volume($scope.verticalSlider[i].value / 100);
       })
     };
 
+    $scope.playPause = function() {
+      for (i = 0; i < 4; i++) {
+        console.log(tracks[i]);
+        if (angular.isDefined(tracks[i])) {
+          if (paused === false) {
+            tracks[i].pause();
+          }
+          if (paused === true) {
+            tracks[i].play();
+            paused - false;
+          }
+        }
+      }
+      paused = !paused;
+      $('#pause').toggle();
+      $('#play').toggle();
+    }
+
     $scope.loadMixer = function($event) {
       $song = angular.element($event.target).parent()
+      $('#play-pause').css('display', 'block');
       $('body').find('section').css('height', '0em');
+      $('img').css('display', 'block');
       $song.find('section').css('height', '20em');
+      $song.find('img').css('display', 'none');
       var mixArray = [];
       for (i = 0; i < 4; i++) {
         if (tracks[i] != undefined) {
@@ -92,6 +111,9 @@ ctrl.controller('main', [
           $scope.$broadcast('rzSliderForceRender');
         })
       }
+      paused = false;
+      $('#pause').css('display', 'block');
+      $('#play').css('display', 'none');
       var i = 0;
       angular.forEach(this.song.audio, function(value, key) {
         mixArray.push(value);

@@ -95,10 +95,41 @@ header {
     display: table; }
 
 .song {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 23.23176%;
   position: relative;
   background-color: gray;
   padding: .5em;
   margin-bottom: 1em; }
+  .song:last-child {
+    margin-right: 0; }
+  .song:nth-child(4n) {
+    margin-right: 0; }
+  .song:nth-child(4n+1) {
+    clear: left; }
+  @media screen and (max-width: 850px) {
+    .song {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 48.82117%; }
+      .song:last-child {
+        margin-right: 0; }
+      .song:nth-child(2n) {
+        margin-right: 0; }
+      .song:nth-child(2n+1) {
+        clear: left; } }
+  @media screen and (max-width: 650px) {
+    .song {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 100%;
+      margin-right: 0; }
+      .song:last-child {
+        margin-right: 0; } }
   .song .song-info {
     text-align: left; }
     .song .song-info .artist {
@@ -106,6 +137,10 @@ header {
       font-size: 1.2em; }
     .song .song-info .album {
       font-style: italic; }
+  .song .slider-container {
+    height: 90%;
+    width: 20%;
+    display: inline-block; }
   .song img {
     width: 100%; }
 
@@ -126,10 +161,11 @@ header {
   .controls #play-pause svg {
     stroke: snow;
     fill: snow;
-    cursor: pointer; }
+    cursor: pointer;
+    display: none; }
   .controls #progress-bar {
     position: absolute;
-    left: 3em;
+    left: 5%;
     width: 90%;
     height: 5%;
     top: 45%;
