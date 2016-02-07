@@ -135,22 +135,20 @@ header {
     width: 100%;
     background-color: black; }
 
-.ul {
-  display: block; }
-  .ul::after {
-    clear: both;
-    content: "";
-    display: table; }
+.song-list {
+  padding: 0em 0.5em; }
+  .song-list li:last-child {
+    margin-bottom: 3em; }
 
 .song {
-  float: left;
-  display: block;
-  margin-right: 2.35765%;
-  width: 23.23176%;
   position: relative;
   background-color: darkgray;
   padding: .5em;
-  margin-bottom: 1em; }
+  margin-bottom: 1em;
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 23.23176%; }
   .song:last-child {
     margin-right: 0; }
   .song:nth-child(4n) {

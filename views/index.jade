@@ -4,7 +4,7 @@ block content
   include ./includes/header
   .container(ng-controller="main")
       
-    ul
+    ul.song-list
       li(ng-repeat="song in allSongs").song
         .song-info
           .artist {{song.artist}}
