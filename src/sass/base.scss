@@ -3,7 +3,7 @@
 
 $header-height: 2.8em;
 
-$main-font: 'Quattrocento', sans-serif;
+$main-font: 'Montserrat', sans-serif;
 
 
 $light-font-color: mistyrose;
@@ -11,3 +11,36 @@ $dark-font-color: black;
 
 $link-color: gold;
 $link-hover: goldenrod;
+
+// -------------------------- main styling --------------------------
+body {
+  background-color: whitesmoke;
+  font-family: $main-font;
+  font-weight: lighter;
+  text-align: center;
+  text-shadow: 1px 1px 1px gray;
+  padding-top: $header-height;
+  color: $dark-font-color;
+}
+
+h1, h2, h3, h4, h5, h6, ul {
+  margin: 0;
+  padding: 0;
+}
+
+ul{
+  list-style: none;
+}
+
+a{
+  text-decoration: none;
+  color: $link-color;
+}
+a:hover {
+  color: $link-hover;
+}
+
+.mixer{
+  height: 0;
+  overflow: hidden;
+}

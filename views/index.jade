@@ -4,9 +4,6 @@ block content
   include ./includes/header
   .container(ng-controller="main")
       
-    .mixer
-    .controls
-    
     ul
       li(ng-repeat="song in allSongs").song
         div ARTIST: {{song.artist}}
@@ -16,4 +13,9 @@ block content
         img(src="{{song.artwork}}")
         button this will be a play button some day
         button(ng-click="loadMixer($event)") MIX THIS SONG
-        //- button(ng-click="loadMixer($event)") MIX THIS SONG
+        section.mixer
+          rzslider(rz-slider-model="verticalSlider[0].value", rz-slider-options="verticalSlider[0].options")
+          rzslider(rz-slider-model="verticalSlider[1].value", rz-slider-options="verticalSlider[1].options")
+          rzslider(rz-slider-model="verticalSlider[2].value", rz-slider-options="verticalSlider[2].options")
+          rzslider(rz-slider-model="verticalSlider[3].value", rz-slider-options="verticalSlider[3].options")
+      //- button(ng-click="loadMixer($event)") MIX THIS SONG}

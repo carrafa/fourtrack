@@ -1,34 +1,5 @@
 @import 'base';
 
-
-// -------------------------- main styling --------------------------
-body {
-  background-color: whitesmoke;
-  font-family: $main-font;
-  font-weight: lighter;
-  text-align: center;
-  text-shadow: 1px 1px 1px gray;
-  padding-top: $header-height;
-  color: $dark-font-color;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  margin: 0;
-}
-
-ul{
-  list-style: none;
-}
-
-a{
-  text-decoration: none;
-  color: $link-color;
-}
-a:hover {
-  color: $link-hover;
-}
-
-
 // -------------------------- signup forms --------------------------
 form{
   position: relative;
@@ -105,10 +76,11 @@ header{
 
 // -------------------------- song stuff -------------------------
 
+.ul{
+  @include row();
+}
 .song{
   position: relative;
-  width: 30%;
-  left: 35%;
   background-color: gray;
   padding: .5em;
   margin-bottom: 1em;
@@ -116,4 +88,16 @@ header{
   img{
     width: 100%;
   }
+  // .info-container{
+  //   position: relative;
+  //   display: inline-block;
+  //   @include span-columns(6);
+  //   @include omega();
+  // }
+  // .mixer{
+  //   position: relative;
+  //   display: inline-block;
+  //   @include span-columns(6);
+  //   @include omega();
+  // }
 }

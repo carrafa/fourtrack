@@ -2,11 +2,13 @@ var ctrl = angular.module('mainController', []);
 
 ctrl.controller('main', [
   '$scope',
+  '$timeout',
   'usersApi',
   'songsApi',
   '$cookies',
   function(
     $scope,
+    $timeout,
     usersApi,
     songsApi,
     $cookies) {
@@ -15,21 +17,85 @@ ctrl.controller('main', [
 
     $scope.cookie = $cookies.get('token');
 
-    $scope.newSong = {}
+    $scope.newSong = {};
 
-    $scope.allSongs = []
+    $scope.allSongs = [];
+
+    tracks = {};
+
+    var vm = this;
+
+    $scope.verticalSlider = [{
+      value: 75,
+      options: {
+        floor: 0,
+        ceil: 100,
+        vertical: true,
+        showSelectionBar: true
+      }
+    }, {
+      value: 75,
+      options: {
+        floor: 0,
+        ceil: 100,
+        vertical: true,
+        showSelectionBar: true
+      }
+    }, {
+      value: 75,
+      options: {
+        floor: 0,
+        ceil: 100,
+        vertical: true,
+        showSelectionBar: true
+      }
+    }, {
+      value: 75,
+      options: {
+        floor: 0,
+        ceil: 100,
+        vertical: true,
+        showSelectionBar: true
+      }
+    }];
+
+    addTrackToSlider = function(track, i) {
+      angular.element(document).on('mousemove', function() {
+        track.volume($scope.verticalSlider[i].value / 100);
+      })
+    };
 
     $scope.loadMixer = function($event) {
       $song = angular.element($event.target).parent()
-      $('.mixer').remove();
-      $('.controls').remove();
+      $('body').find('section').css('height', '0em');
+      $song.find('section').css('height', '20em');
       var mixArray = [];
+      for (i = 0; i < 4; i++) {
+        if (tracks[i] != undefined) {
+          tracks[i].unload();
+          $scope.verticalSlider[i].value = 75;
+        }
+      }
+      var i = 0;
       angular.forEach(this.song.audio, function(value, key) {
-        console.log(value);
         mixArray.push(value);
+        tracks[i] = newHowl(value);
+        addTrackToSlider(tracks[i], i);
+        tracks[i].play()
+        i++;
       });
-      $song.append(createTracks(mixArray));
-    }
+
+      i = 0;
+    };
+
+    function newHowl(url) {
+      var howl = new Howl({
+        urls: [url],
+        autoplay: false,
+        buffer: true
+      });
+      return howl
+    };
 
     $scope.loadUser = function() {
       usersApi.loadUser($scope.cookie).then(function(response) {
@@ -44,7 +110,6 @@ ctrl.controller('main', [
 
     $scope.loadSongs = function() {
       songsApi.getAll().then(function(response) {
-        console.log('songsss?? ', response.data.songs);
         $scope.allSongs = response.data.songs
       })
     }
@@ -57,74 +122,6 @@ ctrl.controller('main', [
 
     $scope.loadUser();
     $scope.loadSongs();
-
-    function newHowl(url) {
-      var howl = new Howl({
-        urls: [url],
-        autoplay: false,
-        buffer: true
-      });
-      return howl
-    };
-
-    function createTracks(tracks) {
-      $mixer = $('<div>').addClass('mixer');
-      $controls = makeControls();
-      $mixer.append($controls);
-      for (i = 0; i < tracks.length; i++) {
-
-        var $trackLabel = $('<div>').text('track' + i);
-        var $sliderContainer = $('<div>').addClass("slider-container");
-        var $track = $('<input type="range">').addClass("slider").attr('id',
-          'track' + i);
-
-        $($sliderContainer).append($track);
-        $($sliderContainer).append($trackLabel);
-        $mixer.append($sliderContainer);
-
-        var howl = newHowl(tracks[i]);
-
-        addTrackToSlider($track, howl);
-        addTrackToControls(howl, $controls);
-
-      };
-      return $mixer
-    };
-
-    function makeControls() {
-      $controls = $('<div>').addClass('controls')
-      $play = $('<div>').attr('id', 'play').text('PLAY')
-      $pause = $('<div>').attr('id', 'pause').text('PAUSE')
-      $stop = $('<div>').attr('id', 'stop').text('STOP')
-      $controls.append($play)
-      $controls.append($pause)
-      $controls.append($stop)
-      return $controls
-    }
-
-    function addTrackToControls(howl, $controls) {
-      $controls.find('#play').on('click', function() {
-        if (howl.paused === false) {
-          console.log('no');
-        } else {
-          howl.play();
-          console.log('play');
-        }
-      });
-      $controls.find('#pause').on('click', function() {
-        howl.pause();
-      });
-      $controls.find('#stop').on('click', function() {
-        howl.stop();
-      });
-
-    };
-
-    function addTrackToSlider(input, howl) {
-      input.on("mousemove", function() {
-        howl.volume($(this).val() / 100);
-      });
-    };
 
   }
 ]);

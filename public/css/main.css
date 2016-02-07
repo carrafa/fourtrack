@@ -6,15 +6,16 @@ html {
 
 body {
   background-color: whitesmoke;
-  font-family: "Quattrocento", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: lighter;
   text-align: center;
   text-shadow: 1px 1px 1px gray;
   padding-top: 2.8em;
   color: black; }
 
-h1, h2, h3, h4, h5, h6 {
-  margin: 0; }
+h1, h2, h3, h4, h5, h6, ul {
+  margin: 0;
+  padding: 0; }
 
 ul {
   list-style: none; }
@@ -25,6 +26,10 @@ a {
 
 a:hover {
   color: goldenrod; }
+
+.mixer {
+  height: 0;
+  overflow: hidden; }
 
 form {
   position: relative;
@@ -88,10 +93,15 @@ header {
   header #logout:hover {
     color: red; }
 
+.ul {
+  display: block; }
+  .ul::after {
+    clear: both;
+    content: "";
+    display: table; }
+
 .song {
   position: relative;
-  width: 30%;
-  left: 35%;
   background-color: gray;
   padding: .5em;
   margin-bottom: 1em;
