@@ -17,3 +17,5 @@ block content
         div(ng-click="edit.hometown = true", ng-hide="edit.hometown") hometown: {{currentUser.hometown}}
         form(ng-submit="updateUser('hometown')")
           input(type="text", ng-show="edit.hometown", ng-model="currentUser.hometown", placeholder="{{currentUser.hometown}}")
+
+    a.new-song(href="/new_song") add a song

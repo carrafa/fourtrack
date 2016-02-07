@@ -52,10 +52,10 @@ header{
     margin-left: .5em;
   }
   #logout{
-    color: firebrick;
+    color: $logout-color;
   }
   #logout:hover{
-    color: red;
+    color: $logout-hover;
   }
 }
 
@@ -121,6 +121,7 @@ header{
   background-color: $bg-medium;
   padding: .5em;
   margin-bottom: 1em;
+
   @include span-columns(3);
   @include omega(4n);
   @include media($tablet){
@@ -153,7 +154,7 @@ header{
     height: 3.5em;
     border-radius: 0.1%;
     padding: 0;
-    background-color: $link-color;
+    background-color: $mixer-button-color;
     background-image: url('/images/mixer.png');
     background-position: center;
     background-size: 90%;
