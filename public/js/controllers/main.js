@@ -64,7 +64,9 @@ ctrl.controller('main', [
     playhead = $interval(function() {
       for (i = 0; i < 4; i++) {
         if (tracks[i] != undefined) {
-          var progress = tracks[i].pos();
+          var pos = tracks[i].pos();
+          var duration = tracks[i]._duration;
+          var progress = (pos / duration) * 100;
           $('#playhead').css('width', progress + '%')
         }
       }
