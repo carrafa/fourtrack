@@ -14,16 +14,36 @@ var SongSchema = mongoose.Schema({
   },
   audio: {
     track01: {
-      type: String
+      label: {
+        type: String
+      },
+      url: {
+        type: String
+      }
     },
     track02: {
-      type: String
+      label: {
+        type: String
+      },
+      url: {
+        type: String
+      }
     },
     track03: {
-      type: String
+      label: {
+        type: String
+      },
+      url: {
+        type: String
+      }
     },
     track04: {
-      type: String
+      label: {
+        type: String
+      },
+      url: {
+        type: String
+      }
     }
   },
   artwork: {

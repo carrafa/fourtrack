@@ -78,7 +78,6 @@ ctrl.controller('main', [
 
     $scope.playPause = function() {
       for (i = 0; i < 4; i++) {
-        console.log(tracks[i]);
         if (angular.isDefined(tracks[i])) {
           if (paused === false) {
             tracks[i].pause();
@@ -116,8 +115,8 @@ ctrl.controller('main', [
       $('#play').css('display', 'none');
       var i = 0;
       angular.forEach(this.song.audio, function(value, key) {
-        mixArray.push(value);
-        tracks[i] = newHowl(value);
+        mixArray.push(value.url);
+        tracks[i] = newHowl(value.url);
         addTrackToSlider(tracks[i], i);
         tracks[i].play()
         i++;

@@ -13,19 +13,18 @@ block content
         img(src="{{song.artwork}}")
         section.mixer
           .slider-container
-            rzslider(rz-slider-model="verticalSlider[0].value", rz-slider-options="verticalSlider[0].options")
-            .label drums
-          .slider-container
-            rzslider(rz-slider-model="verticalSlider[1].value", rz-slider-options="verticalSlider[1].options")
-            .label guitar
+            rzslider(rz-slider-model="verticalSlider[3].value", rz-slider-options="verticalSlider[3].options")
+            .label {{song.audio.track01.label}}
           .slider-container
             rzslider(rz-slider-model="verticalSlider[2].value", rz-slider-options="verticalSlider[2].options")
-            .label bass
+            .label {{song.audio.track02.label}}
           .slider-container
-            rzslider(rz-slider-model="verticalSlider[3].value", rz-slider-options="verticalSlider[3].options")
-            .label lead
-        button this will be a play button some day
-        button(ng-click="loadMixer($event)") MIX THIS SONG
+            rzslider(rz-slider-model="verticalSlider[1].value", rz-slider-options="verticalSlider[1].options")
+            .label {{song.audio.track03.label}}
+          .slider-container
+            rzslider(rz-slider-model="verticalSlider[0].value", rz-slider-options="verticalSlider[0].options")
+            .label {{song.audio.track04.label}}
+        button(ng-click="loadMixer($event)") mix it
         
     .controls
       #play-pause(ng-click="playPause()")
