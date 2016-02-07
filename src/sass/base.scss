@@ -1,6 +1,7 @@
 @import 'bourbon';
 @import 'neat';
 
+@include font-face("main-font", "../fonts/EBGaramondSC12-Regular", $file-formats: ttf);
 
 $tablet: new-breakpoint(max-width 850px 12);
 $mobile: new-breakpoint(max-width 650px 12);
@@ -8,7 +9,7 @@ $mobile: new-breakpoint(max-width 650px 12);
 $header-height: 2.8em;
 $footer-height: 2.5em;
 
-$main-font: 'Oswald', sans-serif;
+$main-font: 'main-font';
 
 $bg-light: mistyrose;
 $bg-dark: navy;

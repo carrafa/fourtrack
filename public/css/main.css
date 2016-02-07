@@ -4,9 +4,15 @@ html {
 *, *::after, *::before {
   box-sizing: inherit; }
 
+@font-face {
+  font-family: "main-font";
+  font-style: normal;
+  font-weight: normal;
+  src: url("../fonts/EBGaramondSC12-Regular.ttf") format("truetype"); }
+
 body {
   background-color: whitesmoke;
-  font-family: "Oswald", sans-serif;
+  font-family: "main-font";
   font-weight: lighter;
   text-align: center;
   text-shadow: 1px 1px 1px gray;
