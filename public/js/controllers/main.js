@@ -73,8 +73,11 @@ ctrl.controller('main', [
       for (i = 0; i < 4; i++) {
         if (tracks[i] != undefined) {
           tracks[i].unload();
-          $scope.verticalSlider[i].value = 75;
         }
+        $scope.verticalSlider[i].value = 75;
+        $timeout(function() {
+          $scope.$broadcast('rzSliderForceRender');
+        })
       }
       var i = 0;
       angular.forEach(this.song.audio, function(value, key) {
@@ -97,6 +100,12 @@ ctrl.controller('main', [
       return howl
     };
 
+    $scope.loadSongs = function() {
+      songsApi.getAll().then(function(response) {
+        $scope.allSongs = response.data.songs
+      })
+    }
+
     $scope.loadUser = function() {
       usersApi.loadUser($scope.cookie).then(function(response) {
         $scope.currentUser = response.data.user[0]
@@ -106,12 +115,6 @@ ctrl.controller('main', [
     $scope.logout = function() {
       $cookies.remove('token');
       location.reload();
-    }
-
-    $scope.loadSongs = function() {
-      songsApi.getAll().then(function(response) {
-        $scope.allSongs = response.data.songs
-      })
     }
 
     $scope.createSong = function() {
