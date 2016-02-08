@@ -25,7 +25,10 @@ ctrl.controller('main', [
 
     $scope.allSongs = [];
 
+    $scope.nowPlaying = {};
+
     tracks = {};
+
 
     $scope.verticalSlider = [{
       value: 75,
@@ -100,7 +103,7 @@ ctrl.controller('main', [
       $('#play-pause').css('display', 'block');
       $('body').find('section').css('height', '0em');
       $('img').css('display', 'block');
-      $song.find('section').css('height', '20em');
+      $song.find('section').css('height', '25em');
       $song.find('img').css('display', 'none');
       var mixArray = [];
       for (i = 0; i < 4; i++) {
@@ -116,6 +119,9 @@ ctrl.controller('main', [
       $('#pause').css('display', 'block');
       $('#play').css('display', 'none');
       var i = 0;
+      $scope.nowPlaying.artist = this.song.artist;
+      $scope.nowPlaying.albumTitle = this.song.albumTitle;
+      $scope.nowPlaying.songTitle = this.song.songTitle;
       angular.forEach(this.song.audio, function(value, key) {
         mixArray.push(value.url);
         tracks[i] = newHowl(value.url);
