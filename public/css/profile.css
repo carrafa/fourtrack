@@ -138,90 +138,62 @@ header {
       width: 100%;
       background-color: black; }
 
-form {
-  position: relative;
-  width: 20%;
-  margin: 0 auto;
-  margin-bottom: 2em; }
-
-input {
-  width: 100%;
-  border: none;
-  border-radius: .5em;
-  margin-top: .5em;
-  height: 1.5em;
-  cursor: pointer; }
-
-.song-list {
-  padding: 0em 0.5em; }
-  .song-list li:last-child {
-    margin-bottom: 3em; }
-
-.song {
-  position: relative;
-  background-color: darkgray;
-  padding: .5em;
-  margin-bottom: 1em;
+.song-list li {
   float: left;
   display: block;
   margin-right: 2.35765%;
-  width: 23.23176%; }
-  .song:last-child {
+  width: 65.88078%;
+  margin-left: 17.05961%; }
+  .song-list li:last-child {
     margin-right: 0; }
-  .song:nth-child(4n) {
-    margin-right: 0; }
-  .song:nth-child(4n+1) {
-    clear: left; }
-  @media screen and (max-width: 1000px) {
-    .song {
-      float: left;
-      display: block;
-      margin-right: 2.35765%;
-      width: 48.82117%; }
-      .song:last-child {
-        margin-right: 0; }
-      .song:nth-child(2n) {
-        margin-right: 0; }
-      .song:nth-child(2n+1) {
-        clear: left; } }
   @media screen and (max-width: 650px) {
-    .song {
+    .song-list li {
       float: left;
       display: block;
       margin-right: 2.35765%;
       width: 100%;
-      margin-right: 0; }
-      .song:last-child {
+      margin-left: 0%; }
+      .song-list li:last-child {
         margin-right: 0; } }
-  .song .song-info {
-    text-align: left; }
-    .song .song-info .artist {
-      font-weight: bold;
-      font-size: 1.2em; }
-    .song .song-info .album {
-      font-style: italic; }
-  .song .slider-container {
-    height: 90%;
-    width: 20%;
-    display: inline-block; }
-  .song img {
-    width: 100%; }
-  .song .mix-it {
-    position: absolute;
-    top: 0.5em;
-    right: 0.5em;
-    width: 3.5em;
-    height: 3.5em;
-    border-radius: 0.1%;
-    padding: 0;
-    background-color: mistyrose;
-    background-image: url("/images/mixer.png");
-    background-position: center;
-    background-size: 90%;
-    background-repeat: no-repeat;
-    border: none; }
-  .song .mix-it:hover {
-    cursor: pointer; }
 
-.invisible {
-  display: none; }
+.song-list .album-art {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 23.23176%;
+  margin-right: 0; }
+  .song-list .album-art:last-child {
+    margin-right: 0; }
+
+.song-list .song-info {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 65.88078%;
+  margin-right: 0; }
+  .song-list .song-info:last-child {
+    margin-right: 0; }
+
+.song-list img {
+  width: 100%; }
+
+.song-list .song-info {
+  padding-left: 1em; }
+
+.song-list .control-panel {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 6.17215%;
+  margin-right: 0; }
+  .song-list .control-panel:last-child {
+    margin-right: 0; }
+  .song-list .control-panel .edit {
+    color: dodgerblue; }
+  .song-list .control-panel .edit:hover {
+    color: cornflowerblue; }
+  .song-list .control-panel .delete {
+    margin-left: .5em;
+    color: crimson; }
+  .song-list .control-panel .delete:hover {
+    color: firebrick; }

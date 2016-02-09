@@ -1,0 +1,46 @@
+@import 'base';
+
+.song-list{
+  li{
+    @include span-columns(8);
+    @include shift(2);
+    @include media($mobile){
+      @include span-columns(12);
+      @include shift(0);
+    }
+  }
+  .album-art{
+    @include span-columns(3);
+    @include omega();
+  }
+  .song-info{
+    @include span-columns(8);
+    @include omega();
+  }
+  img{
+    width: 100%;
+  }
+
+  .song-info{
+    padding-left: 1em;
+  }
+
+  .control-panel{
+    @include span-columns(1);
+    @include omega();
+    .edit{
+      color: $blue-dark;
+    }
+    .edit:hover{
+      color: $blue-light;
+    }
+    .delete{
+      margin-left: .5em;
+      color: $logout-color;
+    }
+    .delete:hover{
+      color: $logout-hover;
+    }
+  }
+
+}

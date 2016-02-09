@@ -1,21 +1,42 @@
 extends base
 
+block head
+  link(rel="stylesheet", href="/css/profile.css")
+
 block content
   include ./includes/header
   .container(ng-controller="profile")
     
     ul
       li 
-        div(ng-click="edit.username=true", ng-hide="edit.username") username: {{currentUser.username}}
+        div(ng-click="editUser.username=true", ng-hide="editUser.username") username: {{currentUser.username}}
         form(ng-submit="updateUser('username')")
-          input(type="text", ng-show="edit.username", ng-model="currentUser.username", placeholder="{{currentUser.username}}")
+          input(type="text", ng-show="editUser.username", ng-model="currentUser.username", placeholder="{{currentUser.username}}")
       li 
-        div(ng-click="edit.artist = true", ng-hide="edit.artist") artist name: {{currentUser.artist}}
+        div(ng-click="editUser.artist = true", ng-hide="editUser.artist") artist name: {{currentUser.artist}}
         form(ng-submit="updateUser('artist')")
-          input(type="text", ng-show="edit.artist", ng-model="currentUser.artist", placeholder="{{currentUser.artist}}")
+          input(type="text", ng-show="editUser.artist", ng-model="currentUser.artist", placeholder="{{currentUser.artist}}")
       li 
-        div(ng-click="edit.hometown = true", ng-hide="edit.hometown") hometown: {{currentUser.hometown}}
+        div(ng-click="editUser.hometown = true", ng-hide="editUser.hometown") hometown: {{currentUser.hometown}}
         form(ng-submit="updateUser('hometown')")
-          input(type="text", ng-show="edit.hometown", ng-model="currentUser.hometown", placeholder="{{currentUser.hometown}}")
+          input(type="text", ng-show="editUser.hometown", ng-model="currentUser.hometown", placeholder="{{currentUser.hometown}}")
 
     a.new-song(href="/new_song") add a song
+    
+    h5 here are your songs:
+    ul.song-list
+      li(ng-repeat="song in userSongs").song
+        .album-art
+          img(src="{{song.artwork}}")
+        .song-info
+          form(ng-submit="updateSong(song._id)", class="invisible")
+            input(type="text", ng-model="editSong.artist", placeholder="{{song.artist}}")
+            input(type="text", ng-model="editSong.albumTitle", placeholder="{{song.albumTitle}}")
+            input(type="text", ng-model="editSong.songTitle", placeholder="{{song.songTitle}}")
+            input(type="submit")
+          .artist {{song.artist}}
+          .album {{song.albumTitle}}
+          .song-title {{song.songTitle}}
+        .control-panel
+          a(href="#", ng-click="editSongFormToggle($event)", class="edit") edit
+          a(href="#", ng-click="deleteSong(song._id)", class="delete") delete

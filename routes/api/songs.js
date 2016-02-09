@@ -6,11 +6,21 @@ var Song = require('../../models/song');
 
 // index
 router.get('/', function(req, res) {
-  Song.find({}, function(err, dbSongs) {
-    res.json({
-      songs: dbSongs
+  if (req.body.user_id) {
+    Song.find({
+      user_id: user_id
+    }, function(err, dbSongs) {
+      res.json({
+        songs: dbSongs
+      });
     });
-  });
+  } else {
+    Song.find({}, function(err, dbSongs) {
+      res.json({
+        songs: dbSongs
+      });
+    });
+  }
 });
 
 // create
@@ -33,18 +43,33 @@ router.post('/', function(req, res, next) {
   });
 });
 
-// delete
-router.delete('/', function(req, res) {
-  if (req.song) {
-    Song.findByIdAndRemove({
-      _id: req.song._id
-    }, function(err) {
-      if (err) {
-        res.status(500).end();
-      }
-      res.status(204).end();
+// patch
+router.patch('/:id', function(req, res, next) {
+  if (!req.body.song) {
+    return next({
+      status: 422,
+      message: 'Missing arguments'
     });
   }
+  Song.findByIdAndUpdate(req.params.id, req.body.song, function(err, song) {
+    if (err) {
+      return err;
+    }
+    res.json(song);
+  });
+});
+
+// delete
+router.delete('/:id', function(req, res) {
+  var id = req.params.id;
+  Song.findByIdAndRemove({
+    _id: id
+  }, function(err) {
+    if (err) {
+      res.status(500).end();
+    }
+    res.status(204).end();
+  });
 });
 
 

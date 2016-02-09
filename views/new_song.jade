@@ -4,6 +4,8 @@ block content
   include ./includes/header
   .container(ng-controller="main")
     h1 HI {{currentUser.username}}
+    .back
+      a(href="/profile") back
     
     .expander
       h1 ADD A SONG!

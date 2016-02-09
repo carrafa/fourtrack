@@ -17,6 +17,20 @@ api.factory('songsApi', ['$http', function($http) {
     return $http.post(baseUrl, payload);
   }
 
+  songsInterface.getUserSongs = function(id) {
+    var user_id = {
+      user_id: id
+    };
+    return $http.get(baseUrl, user_id);
+  }
+
+  songsInterface.updateSong = function(id, song) {
+    var song = {
+      song: song
+    };
+    return $http.patch(baseUrl + "/" + id, song)
+  }
+
   songsInterface.delete = function(id) {
     return $http.delete(baseUrl + "/" + id)
   }
