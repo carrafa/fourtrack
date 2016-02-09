@@ -35,7 +35,8 @@ ctrl.controller('profile', ['$scope', 'usersApi', 'songsApi', '$cookies',
     };
 
     $scope.loadUserSongs = function() {
-      songsApi.getUserSongs($scope.currentUser._id).then(function(
+      var user_id = $scope.currentUser._id
+      songsApi.getUserSongs(user_id).then(function(
         response) {
         $scope.userSongs = response.data.songs;
       });

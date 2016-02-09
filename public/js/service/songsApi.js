@@ -17,11 +17,12 @@ api.factory('songsApi', ['$http', function($http) {
     return $http.post(baseUrl, payload);
   }
 
-  songsInterface.getUserSongs = function(id) {
-    var user_id = {
-      user_id: id
-    };
-    return $http.get(baseUrl, user_id);
+  songsInterface.getUserSongs = function(user_id) {
+    // var user_id = {
+    //   user_id: id
+    // };
+    // console.log("USER ID", user_id);
+    return $http.get(baseUrl + "/user" + "/" + user_id);
   }
 
   songsInterface.updateSong = function(id, song) {

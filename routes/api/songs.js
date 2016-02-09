@@ -6,21 +6,24 @@ var Song = require('../../models/song');
 
 // index
 router.get('/', function(req, res) {
-  if (req.body.user_id) {
-    Song.find({
-      user_id: user_id
-    }, function(err, dbSongs) {
-      res.json({
-        songs: dbSongs
-      });
+  Song.find({}, function(err, dbSongs) {
+    res.json({
+      songs: dbSongs
     });
-  } else {
-    Song.find({}, function(err, dbSongs) {
-      res.json({
-        songs: dbSongs
-      });
+  });
+});
+
+//user songs
+router.get('/user/:id', function(req, res, next) {
+  console.log("REQ", req.user)
+  var user_id = req.user._id;
+  Song.find({
+    user_id: user_id
+  }, function(err, dbSongs) {
+    res.json({
+      songs: dbSongs
     });
-  }
+  });
 });
 
 // create
