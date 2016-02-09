@@ -18,10 +18,6 @@ api.factory('songsApi', ['$http', function($http) {
   }
 
   songsInterface.getUserSongs = function(user_id) {
-    // var user_id = {
-    //   user_id: id
-    // };
-    // console.log("USER ID", user_id);
     return $http.get(baseUrl + "/user" + "/" + user_id);
   }
 

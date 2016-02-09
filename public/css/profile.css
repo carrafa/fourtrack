@@ -138,6 +138,10 @@ header {
       width: 100%;
       background-color: black; }
 
+.new-song {
+  position: absolute;
+  right: 1em; }
+
 .song-list li {
   float: left;
   display: block;

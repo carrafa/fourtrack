@@ -1,5 +1,10 @@
 @import 'base';
 
+.new-song{
+  position: absolute;
+  right: 1em;
+}
+
 .song-list{
   li{
     @include span-columns(8);

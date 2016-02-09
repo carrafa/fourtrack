@@ -5,6 +5,8 @@ block head
 
 block content
   include ./includes/header
+  a.new-song(href="/new_song") add a song
+  
   .container(ng-controller="profile")
     
     ul
@@ -21,7 +23,6 @@ block content
         form(ng-submit="updateUser('hometown')")
           input(type="text", ng-show="editUser.hometown", ng-model="currentUser.hometown", placeholder="{{currentUser.hometown}}")
 
-    a.new-song(href="/new_song") add a song
     
     h5 here are your songs:
     ul.song-list

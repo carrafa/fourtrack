@@ -15,7 +15,6 @@ router.get('/', function(req, res) {
 
 //user songs
 router.get('/user/:id', function(req, res, next) {
-  console.log("REQ", req.user)
   var user_id = req.user._id;
   Song.find({
     user_id: user_id

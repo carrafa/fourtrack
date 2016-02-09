@@ -1,4 +1,4 @@
-var app = angular.module('mixyClient', [
+var app = angular.module('fourtrackClient', [
   'ngCookies',
   'rzModule',
   'mainController',
