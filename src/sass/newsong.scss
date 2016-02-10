@@ -1,0 +1,40 @@
+@import 'base';
+
+// -------------------------- new song forms --------------------------
+.new-song-container{
+  form{
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 2em;
+  }
+
+  input{
+    @include span-columns(8);
+    @include shift(2);
+    @include omega();
+    @include media($mobile){
+      @include span-columns(12);
+      @include shift(0);
+    }
+    border: none;
+    border-radius: .5em;
+    margin-top: .5em;
+    height: 1.5em;
+    cursor: pointer;
+  }
+  button{
+    background-color: $bg-dark;
+    border: none;
+    border-radius: .2em;
+    color: $light-font-color;
+    @include span-columns(8);
+    @include shift(2);
+    @include omega();
+    @include media($mobile){
+      @include span-columns(12);
+      @include shift(0);
+    }
+
+  }
+}

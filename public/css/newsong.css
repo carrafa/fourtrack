@@ -138,70 +138,55 @@ header {
       width: 100%;
       background-color: black; }
 
-.new-song {
-  position: absolute;
-  right: 1em; }
+.new-song-container form {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  margin-bottom: 2em; }
 
-.song-list li {
+.new-song-container input {
   float: left;
   display: block;
   margin-right: 2.35765%;
   width: 65.88078%;
-  margin-left: 17.05961%; }
-  .song-list li:last-child {
+  margin-left: 17.05961%;
+  margin-right: 0;
+  border: none;
+  border-radius: .5em;
+  margin-top: .5em;
+  height: 1.5em;
+  cursor: pointer; }
+  .new-song-container input:last-child {
     margin-right: 0; }
   @media screen and (max-width: 650px) {
-    .song-list li {
+    .new-song-container input {
       float: left;
       display: block;
       margin-right: 2.35765%;
       width: 100%;
       margin-left: 0%; }
-      .song-list li:last-child {
+      .new-song-container input:last-child {
         margin-right: 0; } }
 
-.song-list .album-art {
+.new-song-container button {
+  background-color: aquamarine;
+  border: none;
+  border-radius: .2em;
+  color: mistyrose;
   float: left;
   display: block;
   margin-right: 2.35765%;
-  width: 23.23176%;
+  width: 65.88078%;
+  margin-left: 17.05961%;
   margin-right: 0; }
-  .song-list .album-art:last-child {
+  .new-song-container button:last-child {
     margin-right: 0; }
-
-.song-list .song-info {
-  float: left;
-  display: block;
-  margin-right: 2.35765%;
-  width: 57.35098%;
-  margin-right: 0; }
-  .song-list .song-info:last-child {
-    margin-right: 0; }
-
-.song-list img {
-  width: 100%; }
-
-.song-list .song-info {
-  padding-left: 1em; }
-
-.song-list .control-panel {
-  float: left;
-  display: block;
-  margin-right: 2.35765%;
-  width: 14.70196%;
-  margin-right: 0; }
-  .song-list .control-panel:last-child {
-    margin-right: 0; }
-  .song-list .control-panel .edit {
-    color: dodgerblue; }
-  .song-list .control-panel .edit:hover {
-    color: cornflowerblue; }
-  .song-list .control-panel .delete {
-    margin-left: .5em;
-    color: crimson; }
-  .song-list .control-panel .delete:hover {
-    color: firebrick; }
-  .song-list .control-panel form {
-    width: 100%; }
-  .song-list .control-panel form input {
-    width: 100%; }
+  @media screen and (max-width: 650px) {
+    .new-song-container button {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 100%;
+      margin-left: 0%; }
+      .new-song-container button:last-child {
+        margin-right: 0; } }

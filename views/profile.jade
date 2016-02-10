@@ -30,14 +30,14 @@ block content
         .album-art
           img(src="{{song.artwork}}")
         .song-info
-          form(ng-submit="updateSong(song._id)", class="invisible")
-            input(type="text", ng-model="editSong.artist", placeholder="{{song.artist}}")
-            input(type="text", ng-model="editSong.albumTitle", placeholder="{{song.albumTitle}}")
-            input(type="text", ng-model="editSong.songTitle", placeholder="{{song.songTitle}}")
-            input(type="submit")
           .artist {{song.artist}}
           .album {{song.albumTitle}}
           .song-title {{song.songTitle}}
         .control-panel
           a(href="#", ng-click="editSongFormToggle($event)", class="edit") edit
           a(href="#", ng-click="deleteSong(song._id)", class="delete") delete
+          form(ng-submit="updateSong(song._id)", class="invisible")
+            input(type="text", ng-model="editSong.artist", placeholder="{{song.artist}}")
+            input(type="text", ng-model="editSong.albumTitle", placeholder="{{song.albumTitle}}")
+            input(type="text", ng-model="editSong.songTitle", placeholder="{{song.songTitle}}")
+            input(type="submit")

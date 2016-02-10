@@ -1,5 +1,8 @@
 extends base
 
+block head
+  link(rel="stylesheet", href="/css/newsong.css")
+
 block content
   include ./includes/header
   .container(ng-controller="main")
@@ -7,19 +10,19 @@ block content
     .back
       a(href="/profile") back
     
-    .expander
+    .new-song-container
       h1 ADD A SONG!
-        form(id="createSong", ng-submit="createSong()")
-          input(type="text", ng-model="newSong.artist", placeholder="artist")
-          input(type="text", ng-model="newSong.songTitle", placeholder="song title")
-          input(type="text", ng-model="newSong.albumTitle", placeholder="album title")
-          input(type="text", ng-model="newSong.audio.track01.label", placeholder="track01 label")
-          input(type="text", ng-model="newSong.audio.track01.url", placeholder="track01 url")
-          input(type="text", ng-model="newSong.audio.track02.label", placeholder="track02 label")
-          input(type="text", ng-model="newSong.audio.track02.url", placeholder="track02 url")
-          input(type="text", ng-model="newSong.audio.track03.label", placeholder="track03 label")
-          input(type="text", ng-model="newSong.audio.track03.url", placeholder="track03 url")
-          input(type="text", ng-model="newSong.audio.track04.label", placeholder="track04 label")
-          input(type="text", ng-model="newSong.audio.track04.url", placeholder="track04 url")
-          input(type="text", ng-model="newSong.artwork", placeholder="artwork")
-          button(type="submit") add song
+      form(id="createSong", ng-submit="createSong()")
+        input(type="text", ng-model="newSong.artist", placeholder="artist")
+        input(type="text", ng-model="newSong.songTitle", placeholder="song title")
+        input(type="text", ng-model="newSong.albumTitle", placeholder="album title")
+        input(type="text", ng-model="newSong.audio.track01.label", placeholder="track01 label")
+        input(type="text", ng-model="newSong.audio.track01.url", placeholder="track01 url")
+        input(type="text", ng-model="newSong.audio.track02.label", placeholder="track02 label")
+        input(type="text", ng-model="newSong.audio.track02.url", placeholder="track02 url")
+        input(type="text", ng-model="newSong.audio.track03.label", placeholder="track03 label")
+        input(type="text", ng-model="newSong.audio.track03.url", placeholder="track03 url")
+        input(type="text", ng-model="newSong.audio.track04.label", placeholder="track04 label")
+        input(type="text", ng-model="newSong.audio.track04.url", placeholder="track04 url")
+        input(type="text", ng-model="newSong.artwork", placeholder="artwork")
+        button(type="submit") add song

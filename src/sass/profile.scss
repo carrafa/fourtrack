@@ -19,7 +19,7 @@
     @include omega();
   }
   .song-info{
-    @include span-columns(8);
+    @include span-columns(7);
     @include omega();
   }
   img{
@@ -31,7 +31,7 @@
   }
 
   .control-panel{
-    @include span-columns(1);
+    @include span-columns(2);
     @include omega();
     .edit{
       color: $blue-dark;
@@ -45,6 +45,12 @@
     }
     .delete:hover{
       color: $logout-hover;
+    }
+    form{
+      width: 100%;
+    }
+    form input{
+      width: 100%;
     }
   }
 
