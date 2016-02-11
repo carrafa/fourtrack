@@ -78,7 +78,7 @@ ctrl.controller('main', [
     addTrackToSlider = function(track, i) {
       angular.element(document).on('mousemove', function() {
         track.volume($scope.verticalSlider[i].value / 100);
-      })
+      });
     };
 
     $scope.playPause = function() {
@@ -141,6 +141,29 @@ ctrl.controller('main', [
       });
       return howl
     };
+
+    $scope.setPos = function($event) {
+      // console.log('layer ', $event.layerX);
+      // console.log('page ', $event.pageX);
+      // console.log('screen ', $event.screenX);
+      // console.log('client ', $event.clientX);
+      // console.log('x ', $event.x);
+      // console.log('offset ', $event.offsetX);
+      // console.log('mvmnt ', $event.movementX);
+      var mousePos = $event.layerX;
+      var playbar = angular.element($event.target)[0].clientWidth;
+      var percentage = mousePos / playbar;
+
+      for (i = 0; i < 4; i++) {
+        if (tracks[i]) {
+          tracks[i].pos(percentage * tracks[i]._duration);
+        }
+      }
+    }
+
+    $scope.logPos = function($event) {
+      console.log($event.layerX);
+    }
 
     $scope.loadSongs = function() {
       songsApi.getAll().then(function(response) {

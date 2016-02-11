@@ -37,5 +37,5 @@ block content
                     path(d="M190,0.5 L190,284.50705", id="Line-Copy", sketch:type="MSShapeGroup")
       #progress-bar-container
         #now-playing <span class="bold">{{nowPlaying.artist}}</span><span class="italic">    {{nowPlaying.albumTitle}}    </span>{{nowPlaying.songTitle}}
-        #progress-bar
+        #progress-bar(ng-click="setPos($event)")
           #playhead

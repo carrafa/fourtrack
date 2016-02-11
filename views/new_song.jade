@@ -6,7 +6,7 @@ block head
 block content
   include ./includes/header
   .container(ng-controller="main")
-    h1 HI {{currentUser.username}}
+    h1 HI {{currentUser.username | uppercase}}
     .back
       a(href="/profile") back
     

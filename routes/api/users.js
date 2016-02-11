@@ -48,7 +48,6 @@ router.post('/', function(req, res, next) {
 // update
 
 router.put('/:id', function(req, res, next) {
-  console.log('user? ', req.body.user);
   User.findByIdAndUpdate(req.params.id, req.body.user, function(err, user) {
     if (err) {
       return err

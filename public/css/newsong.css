@@ -190,3 +190,8 @@ header {
       margin-left: 0%; }
       .new-song-container button:last-child {
         margin-right: 0; } }
+
+.new-song-container .back {
+  position: absolute;
+  top: 2.8em;
+  right: 1em; }
