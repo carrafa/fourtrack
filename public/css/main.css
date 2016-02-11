@@ -225,3 +225,6 @@ input {
 
 .invisible {
   display: none; }
+
+.selected {
+  display: block; }

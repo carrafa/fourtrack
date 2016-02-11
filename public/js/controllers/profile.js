@@ -61,7 +61,7 @@ ctrl.controller('profile', ['$scope', 'usersApi', 'songsApi', '$cookies',
         'form');
       $scope.editSong = {};
       forms.addClass('invisible');
-      form.toggleClass('invisible');
+      form.toggleClass('selected');
     }
 
     $scope.loadUser();

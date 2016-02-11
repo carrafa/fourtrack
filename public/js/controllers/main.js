@@ -113,7 +113,7 @@ ctrl.controller('main', [
         $scope.verticalSlider[i].value = 75;
         $timeout(function() {
           $scope.$broadcast('rzSliderForceRender');
-        })
+        });
       }
       paused = false;
       $('#pause').css('display', 'block');
