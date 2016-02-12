@@ -2,7 +2,7 @@ var api = angular.module('usersApiFactory', []);
 
 api.factory('usersApi', ['$http', function($http) {
 
-  var baseUrl = 'http://localhost:8080/api/users';
+  var baseUrl = window.location.origin + '/api/users';
 
   var usersInterface = {};
 

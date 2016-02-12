@@ -2,7 +2,7 @@ var api = angular.module('songsApiFactory', []);
 
 api.factory('songsApi', ['$http', function($http) {
 
-  var baseUrl = 'http://localhost:8080/api/songs';
+  var baseUrl = window.location.origin + '/api/songs';
 
   var songsInterface = {}
 
