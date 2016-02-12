@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 
 // database
-var mongoPath = process.env.MONGOLAB_URI || 'mongodb://localhost/mixy'
+var mongoPath = 'mongodb://localhost/fourtrack'
 var mongoose = require('mongoose');
 mongoose.connect(mongoPath);
 
