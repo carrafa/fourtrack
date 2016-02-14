@@ -84,12 +84,14 @@ ctrl.controller('main', [
     $scope.playPause = function() {
       for (i = 0; i < 4; i++) {
         if (angular.isDefined(tracks[i])) {
-          if (paused === false) {
-            tracks[i].pause();
-          }
-          if (paused === true) {
-            tracks[i].play();
-            paused - false;
+          if (tracks[i].loaded === true) {
+            if (paused === false) {
+              tracks[i].pause();
+            }
+            if (paused === true) {
+              tracks[i].play();
+              paused - false;
+            }
           }
         }
       }
@@ -126,9 +128,10 @@ ctrl.controller('main', [
         mixArray.push(value.url);
         tracks[i] = newHowl(value.url);
         addTrackToSlider(tracks[i], i);
-        tracks[i].play()
+        // tracks[i].play()
         i++;
       });
+      $scope.playPause();
 
       i = 0;
     };
