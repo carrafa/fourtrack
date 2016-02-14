@@ -2,7 +2,7 @@ header(ng-controller="main")
   h1.logo fourtrack
   .username
   nav
-    {{currentUser.username}}
+    div {{currentUser.username}}
     a(href="/") home
     a(href="/profile") profile
     a(href="#", id="logout", ng-click="logout()") logout

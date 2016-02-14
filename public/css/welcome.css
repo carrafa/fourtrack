@@ -138,79 +138,40 @@ header {
       width: 100%;
       background-color: black; }
 
-.song-list {
-  padding: 0em 0.5em; }
-  .song-list li:last-child {
-    margin-bottom: 3em; }
-
-.song {
-  position: relative;
-  background-color: darkgray;
-  padding: .5em;
-  margin-bottom: 1em;
+.welcome * {
+  margin-bottom: .5em;
   float: left;
   display: block;
   margin-right: 2.35765%;
-  width: 23.23176%; }
-  .song:last-child {
+  width: 65.88078%;
+  margin-left: 17.05961%; }
+  .welcome *:last-child {
     margin-right: 0; }
-  .song:nth-child(4n) {
-    margin-right: 0; }
-  .song:nth-child(4n+1) {
-    clear: left; }
-  @media screen and (max-width: 1000px) {
-    .song {
-      float: left;
-      display: block;
-      margin-right: 2.35765%;
-      width: 48.82117%; }
-      .song:last-child {
-        margin-right: 0; }
-      .song:nth-child(2n) {
-        margin-right: 0; }
-      .song:nth-child(2n+1) {
-        clear: left; } }
   @media screen and (max-width: 650px) {
-    .song {
+    .welcome * {
       float: left;
       display: block;
       margin-right: 2.35765%;
       width: 100%;
-      margin-right: 0; }
-      .song:last-child {
+      margin-left: 0%; }
+      .welcome *:last-child {
         margin-right: 0; } }
-  .song .song-info {
-    text-align: left; }
-    .song .song-info .artist {
-      font-weight: bold;
-      font-size: 1.2em; }
-    .song .song-info .album {
-      font-style: italic; }
-  .song .slider-container {
-    height: 90%;
-    width: 20%;
-    display: inline-block; }
-  .song img {
-    width: 100%; }
-  .song .mix-it {
-    position: absolute;
-    top: 0.5em;
-    right: 0.5em;
-    width: 3.5em;
-    height: 3.5em;
-    border-radius: 0.1%;
-    padding: 0;
-    background-color: mistyrose;
-    background-image: url("/images/mixer.png");
-    background-position: center;
-    background-size: 90%;
-    background-repeat: no-repeat;
-    border: none; }
-  .song .mix-it:hover {
-    cursor: pointer; }
 
-.invisible {
-  display: none; }
+.welcome p {
+  text-align: left; }
 
-.selected {
-  display: block; }
+form {
+  margin-top: 3em; }
+
+button {
+  border: none;
+  border-radius: .5em;
+  background-color: #FF7F9D; }
+
+input {
+  border: none;
+  border-radius: .5em;
+  height: 2em; }
+
+button:hover {
+  background-color: #F10038; }

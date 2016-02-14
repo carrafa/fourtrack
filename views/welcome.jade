@@ -1,18 +1,22 @@
 extends base
 
+block head
+  link(rel="stylesheet", href="/css/welcome.css")
+
 block content
   header
     h1 fourtrack
-    
-  .container(ng-controller="login")
-    .signup LOG IN
+  .welcome
+    div welcome to fourtrack.  
+    p fourtrack is a place for musicians to share their creations, and for fans to experience music from a new perspective.  artists can upload isolated tracks of their music.  fans can listen to the individual tracks, mix songs on the fly, and download them for their own remixing.  make an account and log in!
+      
+    .container(ng-controller="login")
       form(ng-submit="logIn()")
         input(type="text", ng-model="credentials.username", placeholder="username")
         input(type="password", ng-model="credentials.password", placeholder="password")
         button(type="submit") log in
-    
-    .signup SIGN UP
-    form(ng-submit="createUser()")
-      input(type="text", ng-model="newUser.username", placeholder="username")
-      input(type="password", ng-model="newUser.password", placeholder="password")
-      button(type="submit") sign up
+      
+      form(ng-submit="createUser()")
+        input(type="text", ng-model="newUser.username", placeholder="username")
+        input(type="password", ng-model="newUser.password", placeholder="password")
+        button(type="submit") sign up
