@@ -15,16 +15,20 @@ block content
         section.mixer
           .slider-container
             rzslider(rz-slider-model="verticalSlider[3].value", rz-slider-options="verticalSlider[3].options")
-            .label {{song.audio.track01.label}}
+            .label 
+              a(href="{{song.audio.track01.url}}") {{song.audio.track01.label}}
           .slider-container
             rzslider(rz-slider-model="verticalSlider[2].value", rz-slider-options="verticalSlider[2].options")
-            .label {{song.audio.track02.label}}
+            .label 
+              a(href="{{song.audio.track02.url}}") {{song.audio.track02.label}}
           .slider-container
             rzslider(rz-slider-model="verticalSlider[1].value", rz-slider-options="verticalSlider[1].options")
-            .label {{song.audio.track03.label}}
+            .label 
+              a(href="{{song.audio.track03.url}}") {{song.audio.track03.label}}
           .slider-container
             rzslider(rz-slider-model="verticalSlider[0].value", rz-slider-options="verticalSlider[0].options")
-            .label {{song.audio.track04.label}}
+            .label 
+              a(href="{{song.audio.track04.url}}") {{song.audio.track04.label}}
         
     .controls
       #play-pause(ng-click="playPause()")

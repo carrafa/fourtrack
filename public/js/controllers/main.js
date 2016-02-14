@@ -137,19 +137,15 @@ ctrl.controller('main', [
       var howl = new Howl({
         urls: [url],
         autoplay: false,
-        buffer: true
+        buffer: true,
+        onload: function() {
+          this.loaded = true;
+        }
       });
       return howl
     };
 
     $scope.setPos = function($event) {
-      // console.log('layer ', $event.layerX);
-      // console.log('page ', $event.pageX);
-      // console.log('screen ', $event.screenX);
-      // console.log('client ', $event.clientX);
-      // console.log('x ', $event.x);
-      // console.log('offset ', $event.offsetX);
-      // console.log('mvmnt ', $event.movementX);
       var mousePos = $event.layerX;
       var playbar = angular.element($event.target)[0].clientWidth;
       var percentage = mousePos / playbar;
