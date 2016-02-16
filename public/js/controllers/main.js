@@ -82,22 +82,24 @@ ctrl.controller('main', [
     };
 
     $scope.playPause = function() {
-      for (i = 0; i < 4; i++) {
-        if (angular.isDefined(tracks[i])) {
-          if (tracks[i].loaded === true) {
-            if (paused === false) {
-              tracks[i].pause();
-            }
-            if (paused === true) {
-              tracks[i].play();
-              paused - false;
-            }
+      if ((tracks[0].loaded === true) &&
+        (tracks[1].loaded === true) &&
+        (tracks[2].loaded === true) &&
+        (tracks[3].loaded === true)
+      ) {
+        paused = !paused;
+        for (i = 0; i < 4; i++) {
+          if (paused === false) {
+            tracks[i].pause();
+          }
+          if (paused === true) {
+            tracks[i].play();
           }
         }
       }
-      paused = !paused;
-      $('#pause').toggle();
+
       $('#play').toggle();
+      $('#pause').toggle();
     }
 
     $scope.loadMixer = function($event) {
@@ -118,8 +120,8 @@ ctrl.controller('main', [
         });
       }
       paused = false;
-      $('#pause').css('display', 'block');
-      $('#play').css('display', 'none');
+      $('#pause').css('display', 'none');
+      $('#play').css('display', 'block');
       var i = 0;
       $scope.nowPlaying.artist = this.song.artist;
       $scope.nowPlaying.albumTitle = this.song.albumTitle;
@@ -128,7 +130,6 @@ ctrl.controller('main', [
         mixArray.push(value.url);
         tracks[i] = newHowl(value.url);
         addTrackToSlider(tracks[i], i);
-        // tracks[i].play()
         i++;
       });
       $scope.playPause();
@@ -143,6 +144,7 @@ ctrl.controller('main', [
         buffer: true,
         onload: function() {
           this.loaded = true;
+          $scope.playPause();
         }
       });
       return howl
