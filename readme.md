@@ -8,7 +8,7 @@ fourtrack is mean application.  The server is built with express, mongo for the 
 
 <img src="/screenshots/screenshot01.png" style="width:100%">
 
-when a user signs up, they can scroll through the songs in the database.  clicking on the mixing icon will hide the album artwork and pull up a mixing board, where users can mix a song as it plays.  Additionally, clickong on the track label will allow the user to download the individual tracks for mixing on their own software.
+when a user signs up, they can scroll through the songs in the database.  clicking on the mixing icon will hide the album artwork and pull up a mixing board, where users can mix a song as it plays.  Additionally, clicking on the track label will allow the user to download the individual track for mixing on their own software.
 
 <img src="/screenshots/screenshot02.png" style="width:100%">
 
