@@ -141,7 +141,7 @@ ctrl.controller('main', [
       var howl = new Howl({
         urls: [url],
         autoplay: false,
-        buffer: true,
+        buffer: false,
         onload: function() {
           this.loaded = true;
           $scope.playPause();
