@@ -15,7 +15,8 @@ ctrl.controller('main', [
     mixer,
     usersApi,
     songsApi,
-    $cookies) {
+    $cookies
+  ) {
 
     $scope.currentUser = {};
 

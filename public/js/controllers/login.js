@@ -1,8 +1,14 @@
 var ctrl = angular.module('loginController', []);
 
-ctrl.controller('login', ['$scope', 'usersApi', '$cookies',
-  function($scope,
-    usersApi, $cookies) {
+ctrl.controller('login', [
+  '$scope',
+  'usersApi',
+  '$cookies',
+  function(
+    $scope,
+    usersApi,
+    $cookies
+  ) {
 
     $scope.credentials = {}
 

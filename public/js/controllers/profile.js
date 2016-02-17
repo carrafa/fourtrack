@@ -1,9 +1,16 @@
 var ctrl = angular.module('profileController', []);
 
-ctrl.controller('profile', ['$scope', 'usersApi', 'songsApi', '$cookies',
-
-  function($scope,
-    usersApi, songsApi, $cookies) {
+ctrl.controller('profile', [
+  '$scope',
+  'usersApi',
+  'songsApi',
+  '$cookies',
+  function(
+    $scope,
+    usersApi,
+    songsApi,
+    $cookies
+  ) {
 
     $scope.credentials = {}
 
