@@ -4,6 +4,8 @@ var app = angular.module('fourtrackClient', [
   'mainController',
   'loginController',
   'profileController',
+  'playheadFactory',
+  'mixerFactory',
   'songsApiFactory',
   'usersApiFactory'
 ]);

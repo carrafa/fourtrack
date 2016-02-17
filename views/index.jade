@@ -10,7 +10,7 @@ block content
           .artist {{song.artist}}
           .album {{song.albumTitle}}
           .song-title {{song.songTitle}}
-        .mix-it(ng-click="loadMixer($event)")
+        .mix-it(ng-click="loadMixer($event, verticalSlider, song)")
         img(src="{{song.artwork}}")
         section.mixer
           .slider-container
