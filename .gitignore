@@ -1,5 +1,0 @@
-.env
-node_modules/
-public/songs/
-seed.js
-localseed.js
