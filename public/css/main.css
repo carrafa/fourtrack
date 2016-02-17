@@ -22,10 +22,10 @@ ul {
 
 a {
   text-decoration: none;
-  color: #FF7F9D; }
+  color: #F10038; }
 
 a:hover {
-  color: #F10038; }
+  color: #FF7F9D; }
 
 .mixer {
   height: 0;
@@ -125,7 +125,8 @@ header {
       position: relative;
       display: block;
       margin: 0;
-      text-align: left; }
+      text-align: left;
+      overflow-x: hidden; }
     .controls #progress-bar-container #progress-bar {
       position: relative;
       display: block;

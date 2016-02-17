@@ -25,8 +25,8 @@ $blue-dark: dodgerblue;
 // $link-color: white;
 // $link-hover: #F10038;
 
-$link-color: #FF7F9D;
-$link-hover: #F10038;
+$link-color: #F10038;
+$link-hover: #FF7F9D;
 
 $logout-color: crimson;
 $logout-hover: firebrick;
@@ -166,6 +166,7 @@ header{
       display: block;
       margin: 0;
       text-align: left;
+      overflow-x: hidden;
     }
     #progress-bar{
       position: relative;
