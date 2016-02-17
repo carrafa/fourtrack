@@ -4,7 +4,7 @@ fourtrack is an application for musicians to share their creations, and for fans
 
 ### technology
 
-fourtrack is mean application.  The server is built with express, mongo for the database, and angular for a front end framework.  The audio playback and management is achieved using <a href="https://github.com/goldfire/howler.js">howlerjs<a>, an excellent javascript audio framework.
+fourtrack is mean application.  The server is built with express, mongo for the database, and angular for a front end framework.  The audio playback and management is achieved using <a href="https://github.com/goldfire/howler.js">howlerjs<a>, an excellent javascript audio library.
 
 <img src="/screenshots/screenshot01.png" style="width:100%">
 
