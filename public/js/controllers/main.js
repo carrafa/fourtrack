@@ -141,7 +141,7 @@ ctrl.controller('main', [
       var howl = new Howl({
         urls: [url],
         autoplay: false,
-        buffer: false,
+        buffer: true,
         onload: function() {
           this.loaded = true;
           $scope.playPause();
@@ -151,8 +151,8 @@ ctrl.controller('main', [
     };
 
     $scope.setPos = function($event) {
-      var mousePos = $event.layerX;
-      var playbar = angular.element($event.target)[0].clientWidth;
+      var mousePos = $event.offsetX;
+      var playbar = document.getElementById('progress-bar').clientWidth;
       var percentage = mousePos / playbar;
 
       for (i = 0; i < 4; i++) {
@@ -160,10 +160,6 @@ ctrl.controller('main', [
           tracks[i].pos(percentage * tracks[i]._duration);
         }
       }
-    }
-
-    $scope.logPos = function($event) {
-      console.log($event.layerX);
     }
 
     $scope.loadSongs = function() {
