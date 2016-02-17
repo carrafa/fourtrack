@@ -19,8 +19,6 @@ ctrl.controller('main', [
 
     $scope.cookie = $cookies.get('token');
 
-    var paused = false;
-
     $scope.newSong = {};
 
     $scope.allSongs = [];
@@ -29,7 +27,9 @@ ctrl.controller('main', [
 
     tracks = {};
 
+    $scope.paused = false;
 
+    // set sliders
     $scope.verticalSlider = [{
       value: 75,
       options: {
@@ -64,6 +64,7 @@ ctrl.controller('main', [
       }
     }];
 
+    // moves the playhead when a song is playing
     playhead = $interval(function() {
       for (i = 0; i < 4; i++) {
         if (tracks[i] != undefined) {
@@ -75,41 +76,43 @@ ctrl.controller('main', [
       }
     }, 100);
 
-    addTrackToSlider = function(track, i) {
-      angular.element(document).on('mousemove', function() {
-        track.volume($scope.verticalSlider[i].value / 100);
-      });
-    };
-
+    // play button
     $scope.playPause = function() {
       if ((tracks[0].loaded === true) &&
         (tracks[1].loaded === true) &&
         (tracks[2].loaded === true) &&
         (tracks[3].loaded === true)
       ) {
-        paused = !paused;
+        $scope.paused = !$scope.paused;
         for (i = 0; i < 4; i++) {
-          if (paused === false) {
+          if ($scope.paused === false) {
             tracks[i].pause();
           }
-          if (paused === true) {
+          if ($scope.paused === true) {
             tracks[i].play();
           }
         }
       }
-
-      $('#play').toggle();
-      $('#pause').toggle();
     }
 
+    // loads up a song to be mixed
     $scope.loadMixer = function($event) {
       $song = angular.element($event.target).parent();
+
       $('#play-pause').css('display', 'block');
       $('body').find('section').css('height', '0em');
       $('img').css('display', 'block');
+
       $song.find('section').css('height', '25em');
       $song.find('img').css('display', 'none');
-      var mixArray = [];
+
+      unloadTracks();
+      setCurrentSong(this);
+      loadTracks(this);
+    };
+
+    // unloads previously loaded tracks
+    function unloadTracks() {
       for (i = 0; i < 4; i++) {
         if (tracks[i] != undefined) {
           tracks[i].unload();
@@ -119,24 +122,10 @@ ctrl.controller('main', [
           $scope.$broadcast('rzSliderForceRender');
         });
       }
-      paused = false;
-      $('#pause').css('display', 'none');
-      $('#play').css('display', 'block');
-      var i = 0;
-      $scope.nowPlaying.artist = this.song.artist;
-      $scope.nowPlaying.albumTitle = this.song.albumTitle;
-      $scope.nowPlaying.songTitle = this.song.songTitle;
-      angular.forEach(this.song.audio, function(value, key) {
-        mixArray.push(value.url);
-        tracks[i] = newHowl(value.url);
-        addTrackToSlider(tracks[i], i);
-        i++;
-      });
-      $scope.playPause();
+      $scope.paused = false;
+    }
 
-      i = 0;
-    };
-
+    // creates a new audio object
     function newHowl(url) {
       var howl = new Howl({
         urls: [url],
@@ -150,6 +139,36 @@ ctrl.controller('main', [
       return howl
     };
 
+    // loads up a song
+    function loadTracks(song) {
+      var i = 0;
+      var mixArray = [];
+      angular.forEach(song.song.audio, function(value, key) {
+        mixArray.push(value.url);
+        tracks[i] = newHowl(value.url);
+        addTrackToSlider(tracks[i], i);
+        i++;
+      });
+      $scope.playPause();
+
+      i = 0;
+    };
+
+    // loads a track to the mixing board
+    addTrackToSlider = function(track, i) {
+      angular.element(document).on('mousemove', function() {
+        track.volume($scope.verticalSlider[i].value / 100);
+      });
+    };
+
+    // used to display the current song
+    function setCurrentSong(song) {
+      $scope.nowPlaying.artist = song.song.artist;
+      $scope.nowPlaying.albumTitle = song.song.albumTitle;
+      $scope.nowPlaying.songTitle = song.song.songTitle;
+    }
+
+    // moves the playhead when a user clicks on the progress bar
     $scope.setPos = function($event) {
       var mousePos = $event.offsetX;
       var playbar = document.getElementById('progress-bar').clientWidth;
@@ -162,12 +181,15 @@ ctrl.controller('main', [
       }
     }
 
+
+    // load songs from db
     $scope.loadSongs = function() {
       songsApi.getAll().then(function(response) {
         $scope.allSongs = response.data.songs
       })
     }
 
+    // load current user
     $scope.loadUser = function() {
       usersApi.loadUser($scope.cookie).then(function(response) {
         $scope.currentUser = response.data.user[0]
@@ -180,9 +202,7 @@ ctrl.controller('main', [
     }
 
     $scope.createSong = function() {
-      songsApi.createSong($scope.newSong).then(function(response) {
-        console.log(response.data);
-      });
+      songsApi.createSong($scope.newSong).then(function(response) {});
     }
 
     $scope.loadUser();

@@ -102,8 +102,7 @@ header {
     width: 100%;
     stroke: black;
     fill: black;
-    cursor: pointer;
-    display: none; }
+    cursor: pointer; }
   .controls svg * {
     stroke: black;
     fill: black; }
