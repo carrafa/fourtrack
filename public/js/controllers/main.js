@@ -71,7 +71,10 @@ ctrl.controller('main', [
           var pos = tracks[i].pos();
           var duration = tracks[i]._duration;
           var progress = (pos / duration) * 100;
-          $('#playhead').css('width', progress + '%')
+          var playhead = angular.element(document.getElementById(
+            'playhead'));
+          playhead.css('width', progress + '%')
+
         }
       }
     }, 100);
@@ -93,23 +96,29 @@ ctrl.controller('main', [
           }
         }
       }
-    }
+    };
 
     // loads up a song to be mixed
     $scope.loadMixer = function($event) {
-      $song = angular.element($event.target).parent();
-
-      $('#play-pause').css('display', 'block');
-      $('body').find('section').css('height', '0em');
-      $('img').css('display', 'block');
-
-      $song.find('section').css('height', '25em');
-      $song.find('img').css('display', 'none');
-
+      hideAllMixers()
+      showCurrentMixer($event.target)
       unloadTracks();
       setCurrentSong(this);
       loadTracks(this);
     };
+
+    function hideAllMixers() {
+      section = angular.element(document.getElementsByTagName('section'));
+      img = angular.element(document.getElementsByTagName('img'));
+      section.css('height', '0em');
+      img.css('display', 'block');
+    }
+
+    function showCurrentMixer(target) {
+      $song = angular.element(target).parent();
+      $song.find('section').css('height', '25em');
+      $song.find('img').css('display', 'none');
+    }
 
     // unloads previously loaded tracks
     function unloadTracks() {
